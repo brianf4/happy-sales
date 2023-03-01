@@ -24,7 +24,7 @@ function App() {
           <section className="border-2 border-green-400 w-[99%]">
             <Transactions />
           </section>
-          <section className="border-2 border-green-400 flex flex-col w-full bg-neutral p-2 gap-y-4">
+          <section className="border-2 border-green-400 flex flex-col w-full p-2 gap-y-4">
             <Stat />
             <Stat />
             <Stat />
