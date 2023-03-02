@@ -1,39 +1,19 @@
 import { useState } from 'react';
-import './App.css';
+import { Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
-import Transactions from './components/Transactions';
-import Graph from './components/Graph';
-import Stat from './components/Stat';
+
+
+//pages
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
-      
-      <div className="drawer drawer-mobile">
-        
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="border-2 border-amber-800 drawer-content flex flex-col items-center justify-center overflow-x-hidden">
-          {/* <!-- Page content here --> */}
-          
-          
-          <section className="border-2 border-green-400"> 
-            <Graph />
-          </section>
-          <section className="border-2 border-green-400 w-[99%]">
-            <Transactions />
-          </section>
-          <section className="border-2 border-green-400 flex flex-col w-full p-2 gap-y-4">
-            <Stat />
-            <Stat />
-            <Stat />
-          </section>
-          
-        </div> 
-        <Sidebar />
-        
-      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }

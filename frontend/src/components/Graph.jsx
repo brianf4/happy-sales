@@ -50,7 +50,7 @@ class Graph extends Component {
             type="area"
             width="500"
           />
-
+          
       </div>
     );
   }

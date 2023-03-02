@@ -9,9 +9,13 @@
   },
   "dependencies": {
     "apexcharts": "^3.37.1",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
     "react": "^17.0.2",
     "react-apexcharts": "^1.4.0",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.8.2",
+    "sort-by": "^1.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
