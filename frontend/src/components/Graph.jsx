@@ -48,7 +48,7 @@ class Graph extends Component {
             options={this.state.options}
             series={this.state.series}
             type="area"
-            width="500"
+            width="495"
           />
           
       </div>

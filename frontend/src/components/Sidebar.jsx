@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 
 function Sidebar() {
   return (
@@ -6,8 +8,8 @@ function Sidebar() {
       <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
       <ul className="menu p-4 w-80 bg-base-100 text-base-content">
         {/* <!-- Sidebar content here --> */}
-        <li><a>Dashboard</a></li>
-        <li><a>Inventory</a></li>
+        <li><Link to="/">Dashboard</Link></li>
+        <li><Link to="inventory">Inventory</Link></li>
       </ul>
         
     </div>
