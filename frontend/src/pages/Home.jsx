@@ -8,8 +8,9 @@ function Home() {
   return (
         
         <div>
-          {/* <!-- Page content here --> */}
+          
           <section className="border-2 border-cyan-600"> 
+          <h1>Revenue</h1>
             <Graph />
           </section>
           <section className="">

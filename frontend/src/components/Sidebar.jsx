@@ -10,6 +10,7 @@ function Sidebar() {
         {/* <!-- Sidebar content here --> */}
         <li><Link to="/">Dashboard</Link></li>
         <li><Link to="inventory">Inventory</Link></li>
+        <li><a>Sales</a></li>
       </ul>
         
     </div>

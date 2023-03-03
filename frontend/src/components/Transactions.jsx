@@ -3,6 +3,7 @@ import React from "react";
 
 function Transactions() {
   return (
+    
     <div className="overflow-x-auto whitespace-nowrap">
       <table className="table table-zebra w-full">
         {/* head */}
