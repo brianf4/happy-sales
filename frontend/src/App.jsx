@@ -13,7 +13,7 @@ function App() {
   return (
     <div className='h-full'>
       <Navbar />
-      <div className="drawer drawer-mobile border-2 border-violet-600 h-full">
+      <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
         {/* <!-- Right page content here --> */}         
