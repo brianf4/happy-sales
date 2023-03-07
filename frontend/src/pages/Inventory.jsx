@@ -5,23 +5,11 @@ function Inventory() {
 
   return (
     <div className="">
+      
       <header>
         <h2 className="py-12">Inventory</h2>
-        <section className="flex justify-between items-center p-8">
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text-alt">Filter</span>
-            </label>
-            <select className="select select-bordered">
-              <option disabled defaultValue>Pick one</option>
-              <option>Star Wars</option>
-              <option>Harry Potter</option>
-              <option>Lord of the Rings</option>
-              <option>Planet of the Apes</option>
-              <option>Star Trek</option>
-            </select>
-            
-          </div>
+        <section className="">
+          
           {/* The button to open modal */}
           <label htmlFor="my-modal-4" className="btn">open modal</label>
 
@@ -64,6 +52,7 @@ function Inventory() {
           </tbody>
         </table>
       </div>
+      
     </div>
   )
 }
