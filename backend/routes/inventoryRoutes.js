@@ -1,4 +1,5 @@
 const express = require('express')
+const Inventory = require('../models/inventoryModel')
 const router = express.Router()
 
 // GET all inventory
@@ -12,8 +13,15 @@ router.get('/:id', (req, res) => {
 })
 
 // POST a new inventory(product)
-router.post('/', (req, res) => {
-    res.json({mssg: 'POST a new workout'})
+router.post('/', async (req, res) => {
+    const {product, cost, id, qty} = req.body
+    try {
+        const inventory = await Inventory.create({product, cost, id, qty})
+        res.status(200).json(inventory)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+    
 })
 
 // DELETE a new inventory(product)
