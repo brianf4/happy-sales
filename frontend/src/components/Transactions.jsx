@@ -1,53 +1,32 @@
 import React from "react";
 
 
-function Transactions() {
+function Transactions(props) {
+  
   return (
-    
     <div className="overflow-x-auto whitespace-nowrap">
       <table className="table table-zebra w-full">
         {/* head */}
         <thead>
           <tr>
-            <th></th>
+            <th>ID</th>
             <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-            <th>Food</th>
+            <th>Cost</th>
+            <th>Qty</th>
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
+          {/* row */}
           <tr>
-            <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
-            <td>Pizza</td>
-          </tr>
-          {/* row 2 */}
-          <tr>
-            <th>2</th>
-            <td>Hart Hagerty</td>
-            <td>Desktop Support Technician</td>
-            <td>Purple</td>
-            <td>Ice Cream</td>
-          </tr>
-          {/* row 3 */}
-          <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            <td>Tax Accountant</td>
-            <td>Red</td>
-            <td>Rice</td>
-          </tr>
-          {/* row 4 */}
-          <tr>
-            <th>4</th>
-            <td>Bruce chad</td>
-            <td>Engineer</td>
-            <td>Yellow</td>
-            <td>Sushi</td>
+            <th>{props.inventory.id.slice(-5)}</th>
+            <td>{props.inventory.product}</td>
+            <td>{props.inventory.cost}</td>
+            <td className="flex items-center gap-x-2">
+              {/* {props.inventory.qty} */}
+              <i
+                onClick={ () => props.deleteProduct(props.inventory._id)} 
+                className="fa-solid fa-trash-can"></i>
+            </td>
           </tr>
         </tbody>
       </table>

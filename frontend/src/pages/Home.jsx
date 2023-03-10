@@ -4,7 +4,8 @@ import Transactions from '../components/Transactions';
 import Graph from '../components/Graph';
 import Stat from '../components/Stat';
 
-function Home() {
+function Home(props) {
+  console.log(props.data)
   return (
         
         <div>
