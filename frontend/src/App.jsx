@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import Popup from './components/Popup';
 
 
 //pages
@@ -39,7 +40,7 @@ function App() {
     
     setInventory((prevInventory) => prevInventory.filter(item => item._id !== data._id))
   }
-
+  console.log(inventory)
 
   return (
     <div className='h-full'>
@@ -49,19 +50,27 @@ function App() {
         <div className="drawer-content flex flex-col">
         {/* <!-- Right page content here --> */}         
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" 
+            element={
+            <Home 
+              inventory={inventory}
+            />
+            } />
             <Route 
               path="inventory" 
               element={
-              <Inventory 
-                inventory={inventory}
-                addProduct={addProduct}
-                deleteProduct={deleteProduct}
-              />} />
+            <Inventory 
+              inventory={inventory}
+              addProduct={addProduct}
+              deleteProduct={deleteProduct}
+            />
+            } />
           </Routes>
         </div>
         <Sidebar />
-        
+        <Popup 
+          addProduct={addProduct}
+          />
       </div>
       
     </div>

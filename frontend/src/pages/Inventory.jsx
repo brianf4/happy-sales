@@ -13,6 +13,7 @@ function Inventory(props) {
       />  
     )
   } )
+  console.log(props)
   
   return (
     <div className="">
@@ -23,15 +24,28 @@ function Inventory(props) {
           
           {/* The button to open modal */}
           <label htmlFor="my-modal-4" className="btn">open modal</label>
-          <Popup 
-            addProduct={props.addProduct}
-          />
+          
 
           
         </section>
       </header>
-      {products}
-      
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>ID</th>
+              <th>Cost</th>
+              <th>Qty</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          {products}
+        </table>
+      </div>
+
     </div>
   )
 }

@@ -5,7 +5,17 @@ import Graph from '../components/Graph';
 import Stat from '../components/Stat';
 
 function Home(props) {
-  console.log(props.data)
+
+  const products = props.inventory.map((product) => {
+    return (
+      <Transactions 
+        key={props.inventory._id}
+        inventory={product}
+        deleteProduct={props.deleteProduct}
+      />  
+    )
+  } )
+
   return (
         
         <div>
@@ -15,7 +25,21 @@ function Home(props) {
             <Graph />
           </section>
           <section className="">
-            <Transactions />
+            <div className="overflow-x-auto">
+              <table className="table table-zebra w-full">
+                {/* head */}
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Cost</th>
+                    <th>Qty</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                {products}
+              </table>
+            </div>
           </section>
           <section className="border-2 border-green-400 flex flex-col w-[99%] p-2 gap-y-4">
             <Stat />
