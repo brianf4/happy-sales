@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.viewport {
+    position: relative;
+}
+
+.viewport canvas {
+    top: 0;
+    width: 100%;
+    position: absolute;
+}

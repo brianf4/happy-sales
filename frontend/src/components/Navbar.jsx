@@ -3,6 +3,8 @@ import React from "react";
 function Navbar() {
   return (
     <div className="navbar bg-primary text-primary-content">
+          <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+
       <div className="flex-1">
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div>

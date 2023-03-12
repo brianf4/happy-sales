@@ -6,15 +6,16 @@ import Stat from '../components/Stat';
 
 function Home(props) {
 
-  const products = props.inventory.map((product) => {
-    return (
-      <Transactions 
-        key={props.inventory._id}
-        inventory={product}
-        deleteProduct={props.deleteProduct}
-      />  
-    )
-  } )
+  // const products = props.inventory.map((product) => {
+  //   return (
+  //     <Transactions 
+  //       key={props.inventory._id}
+  //       inventory={product}
+  //       deleteProduct={props.deleteProduct}
+  //     />  
+  //   )
+  // } )
+  console.log()
 
   return (
         
@@ -30,7 +31,7 @@ function Home(props) {
                 {/* head */}
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th>Transactions</th>
                     <th>ID</th>
                     <th>Cost</th>
                     <th>Qty</th>
@@ -38,7 +39,7 @@ function Home(props) {
                     <th></th>
                   </tr>
                 </thead>
-                {products}
+                
               </table>
             </div>
           </section>
