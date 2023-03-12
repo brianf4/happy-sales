@@ -13,17 +13,17 @@ function Inventory(props) {
       />  
     )
   } )
-  console.log(props)
+  
   
   return (
     <div className="">
       
       <header>
         <h2 className="py-12">Inventory</h2>
-        <section className="">
+        <section className="flex justify-end p-2">
           
           {/* The button to open modal */}
-          <label htmlFor="my-modal-4" className="btn">open modal</label>
+          <label htmlFor="my-modal-4" className="btn">Add Item</label>
           
 
           
@@ -38,7 +38,6 @@ function Inventory(props) {
               <th>ID</th>
               <th>Cost</th>
               <th>Qty</th>
-              <th></th>
               <th></th>
             </tr>
           </thead>

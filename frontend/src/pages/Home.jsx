@@ -35,6 +35,7 @@ function Home(props) {
                     <th>Cost</th>
                     <th>Qty</th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 {products}

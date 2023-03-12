@@ -3,7 +3,8 @@ import { Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Popup from './components/Popup';
-
+import EditPopup from './components/EditPopup';
+import DeletePopup from './components/DeletePopup'
 
 //pages
 import Home from './pages/Home';
@@ -40,7 +41,7 @@ function App() {
     
     setInventory((prevInventory) => prevInventory.filter(item => item._id !== data._id))
   }
-  console.log(inventory)
+  
 
   return (
     <div className='h-full'>
@@ -72,6 +73,14 @@ function App() {
           addProduct={addProduct}
           />
       </div>
+        <EditPopup 
+          inventory={inventory}
+        />
+
+        <DeletePopup 
+          inventory={inventory}
+          deleteProduct={deleteProduct}
+        />
       
     </div>
   );
