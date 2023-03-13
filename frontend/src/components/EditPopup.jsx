@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-function EditPopup(props) {
+function EditPopup() {
   return (
     <div>
       <input type="checkbox" id="edit-item" className="modal-toggle" />
