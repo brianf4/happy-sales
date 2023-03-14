@@ -3,7 +3,7 @@ import Scanner from './Scanner'
 import Quagga from "quagga";
 
 
-function Popup(props) {
+function AddPopup(props) {
   const [camera, setCamera] = useState(false);
   const [result, setResult] = useState(null);
   
@@ -55,7 +55,7 @@ function Popup(props) {
       console.log('New product added: ', data)
     }
   }
-
+  
   function handleChange(event) {
     const { product, cost, id, qty, value, name } = event.target
     setProductData(prevProductData => {
@@ -164,4 +164,4 @@ function Popup(props) {
     </div>
   )
 }
-export default Popup
+export default AddPopup

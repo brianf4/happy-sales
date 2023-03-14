@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-import Popup from './components/Popup';
+import AddPopup from './components/AddPopup';
 
 
 //pages
@@ -56,7 +56,7 @@ function App() {
     <div className='h-full'>
       <Navbar />
       <div className="drawer drawer-mobile">
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
         {/* <!-- Right page content here --> */}         
           <Routes>
@@ -76,16 +76,14 @@ function App() {
               deleteProduct={deleteProduct}
             />
             } />
-
           </Routes>
         </div>
-        
-        <Popup 
+        <Sidebar />
+        <AddPopup 
           addProduct={addProduct}
-          />
-        <Sidebar />  
+          />  
       </div>
-        
+      
     </div>
 
   );

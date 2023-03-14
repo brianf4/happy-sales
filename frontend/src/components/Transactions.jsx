@@ -2,6 +2,7 @@ import React from "react";
 
 
 function Transactions(props) {
+
   return (
       <tbody>
       <tr>
@@ -11,7 +12,6 @@ function Transactions(props) {
         <td>$ {props.inventory.cost}</td>
         <td>{props.inventory.qty}</td>
         <td className="flex gap-x-2">  
-          
           {/* The button to open edit modal */}
           <label htmlFor={`edit-item-${props.inventory._id}`} className="btn btn-outline btn-info btn-sm normal-case"><i className="fa-solid fa-pen-to-square px-1"></i>Edit Item</label>
 
@@ -20,6 +20,7 @@ function Transactions(props) {
           htmlFor={`delete-item-${props.inventory._id}`} 
           className="btn btn-outline btn-error btn-sm normal-case" 
           ><i className="fa-solid fa-trash-can px-1"></i>Delete Item</label>
+
         </td>
         <td className="contents">
           <div>

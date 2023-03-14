@@ -12,8 +12,7 @@ function Sidebar() {
         <li><Link to="inventory">Inventory</Link></li>
         <li><a>Sales</a></li>
       </ul>
-        
     </div>
-  )
+  ) 
 }
 export default Sidebar;
