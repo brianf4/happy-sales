@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
 import Transactions from "../components/Transactions";
-import Popup from '../components/Popup';
 
 function Inventory(props) {
 
   const products = props.inventory.map((product) => {
     return (
       <Transactions 
-        key={props.inventory._id}
+        key={product._id}
         inventory={product}
         deleteProduct={props.deleteProduct}
       />  
@@ -39,9 +37,12 @@ function Inventory(props) {
               <th>Cost</th>
               <th>Qty</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
+          
           {products}
+          
         </table>
       </div>
 

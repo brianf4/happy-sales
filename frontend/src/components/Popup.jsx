@@ -86,7 +86,7 @@ function Popup(props) {
       {/* Put this part before </body> tag */}
       <input type="checkbox" id="my-modal-4" className="modal-toggle" />
       <label htmlFor="my-modal-4" className="modal cursor-pointer items-center">
-        <label className="modal-box relative rounded-2xl flex flex-col gap-y-2" htmlFor="">
+        <label className="modal-box rounded-2xl flex flex-col gap-y-2" htmlFor="">
           <form onSubmit={handleSubmit}>
             <div className="flex gap-x-2">
               <div className="flex flex-col grow">

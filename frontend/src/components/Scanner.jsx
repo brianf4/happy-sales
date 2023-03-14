@@ -19,7 +19,7 @@ function Scanner(props) {
          "halfSample": true
       },
       "numOfWorkers": 4,
-      "frequency": 50,
+      "frequency": 20,
       "decoder": {
         "readers": ["ean_reader"]
       },

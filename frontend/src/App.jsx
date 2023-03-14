@@ -1,14 +1,15 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Popup from './components/Popup';
-import EditPopup from './components/EditPopup';
-import DeletePopup from './components/DeletePopup'
+
 
 //pages
 import Home from './pages/Home';
 import Inventory from './pages/Inventory';
+
 
 function App() {
   const [inventory, setInventory] = useState([])
@@ -40,10 +41,18 @@ function App() {
     const data = await res.json()
     
     setInventory((prevInventory) => prevInventory.filter(item => item._id !== data._id))
+    console.log(productId)
   }
+  //This function is grabbing the id of each item and sending it to the modal popup to know what item is being deleted. 
+  // const itemId = null;
+  // function grabItemId(id) {
+  //   itemId = id
+  //   console.log(itemId)
+  // }
   
 
   return (
+
     <div className='h-full'>
       <Navbar />
       <div className="drawer drawer-mobile">
@@ -51,6 +60,7 @@ function App() {
         <div className="drawer-content flex flex-col">
         {/* <!-- Right page content here --> */}         
           <Routes>
+            
             <Route path="/" 
             element={
             <Home 
@@ -66,23 +76,18 @@ function App() {
               deleteProduct={deleteProduct}
             />
             } />
+
           </Routes>
         </div>
-        <Sidebar />
+        
         <Popup 
           addProduct={addProduct}
           />
+        <Sidebar />  
       </div>
-        <EditPopup 
-          inventory={inventory}
-        />
-
-        <DeletePopup 
-          inventory={inventory}
-          deleteProduct={deleteProduct}
-        />
-      
+        
     </div>
+
   );
 }
 
