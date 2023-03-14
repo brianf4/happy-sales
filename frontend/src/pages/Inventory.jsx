@@ -8,7 +8,8 @@ function Inventory(props) {
         key={product._id}
         inventory={product}
         deleteProduct={props.deleteProduct}
-      />  
+        handleId={props.handleId}
+      />
     )
   } )
   
@@ -22,8 +23,6 @@ function Inventory(props) {
           
           {/* The button to open modal */}
           <label htmlFor="my-modal-4" className="btn">Add Item</label>
-          
-
           
         </section>
       </header>

@@ -15,7 +15,7 @@ function Scanner(props) {
         },
       },
       "locator": {
-        "patchSize": "medium",
+        "patchSize": "large",
          "halfSample": true
       },
       "numOfWorkers": 4,

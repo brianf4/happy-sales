@@ -4,7 +4,8 @@ import { Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import AddPopup from './components/AddPopup';
-
+import DeletePopup from './components/DeletePopup';
+import EditPopup from './components/EditPopup';
 
 //pages
 import Home from './pages/Home';
@@ -13,6 +14,7 @@ import Inventory from './pages/Inventory';
 
 function App() {
   const [inventory, setInventory] = useState([])
+  const [productId, setProductId] = useState('')
 
   useEffect (() => {
     async function fetchInventory() {
@@ -43,12 +45,11 @@ function App() {
     setInventory((prevInventory) => prevInventory.filter(item => item._id !== data._id))
     console.log(productId)
   }
-  //This function is grabbing the id of each item and sending it to the modal popup to know what item is being deleted. 
-  // const itemId = null;
-  // function grabItemId(id) {
-  //   itemId = id
-  //   console.log(itemId)
-  // }
+  //This function grabs/handles the id of the delete & edit button and sends it to the modal popup component to delete or edit inventory product
+  function handleId(id) {
+    setProductId(id)
+  }
+  
   
 
   return (
@@ -74,6 +75,7 @@ function App() {
               inventory={inventory}
               addProduct={addProduct}
               deleteProduct={deleteProduct}
+              handleId={handleId}
             />
             } />
           </Routes>
@@ -81,7 +83,15 @@ function App() {
         <Sidebar />
         <AddPopup 
           addProduct={addProduct}
-          />  
+        /> 
+        <DeletePopup 
+          productId={productId}
+          deleteProduct={deleteProduct}
+        />   
+        <EditPopup 
+          productId={productId}
+          inventory={inventory}
+        />
       </div>
       
     </div>
