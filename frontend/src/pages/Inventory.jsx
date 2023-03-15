@@ -13,7 +13,6 @@ function Inventory(props) {
     )
   } )
   
-  
   return (
     <div className="">
       

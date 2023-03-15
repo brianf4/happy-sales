@@ -14,7 +14,7 @@ import Inventory from './pages/Inventory';
 
 function App() {
   const [inventory, setInventory] = useState([])
-  const [productId, setProductId] = useState('')
+  const [product, setProduct] = useState({})
 
   useEffect (() => {
     async function fetchInventory() {
@@ -47,7 +47,8 @@ function App() {
   }
   //This function grabs/handles the id of the delete & edit button and sends it to the modal popup component to delete or edit inventory product
   function handleId(id) {
-    setProductId(id)
+    const product = inventory.find(product => product._id === id)
+    setProduct(product)
   }
   
   
@@ -85,11 +86,11 @@ function App() {
           addProduct={addProduct}
         /> 
         <DeletePopup 
-          productId={productId}
+          product={product}
           deleteProduct={deleteProduct}
         />   
         <EditPopup 
-          productId={productId}
+          product={product}
           inventory={inventory}
         />
       </div>
