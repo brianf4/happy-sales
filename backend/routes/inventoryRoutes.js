@@ -3,7 +3,8 @@ const {
     getInventory,
     getProduct,
     createProduct,
-    deleteProduct
+    deleteProduct,
+    updateProduct
 } = require('../controllers/inventoryController')
 const router = express.Router()
 
@@ -20,8 +21,6 @@ router.post('/', createProduct)
 router.delete('/:id', deleteProduct)
 
 // UPDATE a new inventory(product)
-router.put('/:id', (req, res) => {
-    res.json({mssg: 'UPDATE a new workout'})
-})
+router.put('/:id', updateProduct)
 
 module.exports = router

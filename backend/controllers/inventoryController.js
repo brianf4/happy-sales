@@ -41,7 +41,7 @@ const deleteProduct = async (req, res) => {
   const inventory = await Inventory.findOneAndDelete({_id: id})
 
   if (!inventory) {
-    return res.status(404).json({error: 'No such todo'})
+    return res.status(404).json({error: 'No such product'})
   }
 
   res.status(200).json(inventory)
@@ -49,11 +49,28 @@ const deleteProduct = async (req, res) => {
 
 
 //update an inventory(product)
+const updateProduct = async (req, res) => {
+  const { id } = req.params
 
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: 'No such product'})
+  }
+  const inventory = await Inventory.findOneAndUpdate({_id: id}, {
+    ...req.body
+  }, {new: true})
 
+  console.log('Updated product: ', inventory)
+
+  if (!inventory) {
+    return res.status(404).json({error: 'No such product'})
+  }
+
+  res.status(200).json(inventory)
+}
 module.exports = {
   getInventory,
   getProduct,
   createProduct,
-  deleteProduct
+  deleteProduct,
+  updateProduct
 }

@@ -9,7 +9,7 @@ function EditPopup(props) {
         qty: 0
     })
 
-    //To stop an additional rerender. Doesn't really matter too much but prop drilling is not ideal. 
+    
     useEffect(() => {
         if(Object.keys(props.product).length > 0) {
                 setText(props.product)
@@ -24,6 +24,21 @@ function EditPopup(props) {
           }
         })
       }
+
+
+    async function updateProduct() {
+    const product = { ...text }
+    
+    const res = await fetch('http://localhost:4000/api/inventory/' + props.product._id, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(product)
+    })
+    const data = await res.json()
+    props.fetchInventory()
+    
+    
+    }  
         
     
     return (
@@ -95,8 +110,8 @@ function EditPopup(props) {
                     <label 
                         htmlFor="edit-item" 
                         className="btn"
-                        //onClick={handleClick}
-                    >Yay!</label>
+                        onClick={updateProduct}
+                    >Save All</label>
                 </div>
                 </div>
             </div>

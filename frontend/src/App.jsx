@@ -16,14 +16,16 @@ function App() {
   const [inventory, setInventory] = useState([])
   const [product, setProduct] = useState({})
 
-  useEffect (() => {
-    async function fetchInventory() {
-      const res = await fetch('http://localhost:4000/api/inventory')
-      const data = await res.json()
-      if (res.ok) {
-        setInventory(data)
-      }
+  async function fetchInventory() {
+    const res = await fetch('http://localhost:4000/api/inventory')
+    const data = await res.json()
+    if (res.ok) {
+      setInventory(data)
     }
+  }
+
+  useEffect (() => {
+    
     
     fetchInventory()
   }, [])
@@ -45,6 +47,10 @@ function App() {
     setInventory((prevInventory) => prevInventory.filter(item => item._id !== data._id))
     console.log(productId)
   }
+  function updateInventory(product) {
+    setInventory(product)
+  }
+
   //This function grabs/handles the id of the delete & edit button and sends it to the modal popup component to delete or edit inventory product
   function handleId(id) {
     const product = inventory.find(product => product._id === id)
@@ -92,6 +98,8 @@ function App() {
         <EditPopup 
           product={product}
           inventory={inventory}
+          updateInventory={updateInventory}
+          fetchInventory={fetchInventory}
         />
       </div>
       

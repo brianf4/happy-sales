@@ -1,10 +1,12 @@
 import React from "react";
 
 function DeletePopup(props) {
-    //change props.productId to props.product._id
-    // function handleClick() {
-    //     props.deleteProduct(props.productId)
-    // }
+
+    function handleClick() {
+        props.deleteProduct(props.product._id)
+    }
+    
+    
     return (
         <div>
             {/* Put this part before </body> tag */}
@@ -23,7 +25,7 @@ function DeletePopup(props) {
                         <label 
                         htmlFor={`delete-item`}
                         className="btn btn-outline btn-error"
-                        //onClick={handleClick}
+                        onClick={handleClick}
                         >Yes, delete</label>
                         <label htmlFor={`delete-item`} className="btn btn-outline">No, cancel</label>
                     </div>
