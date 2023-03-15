@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 
 function Transactions(props) {
-
   function handleClick() {
     props.handleId(props.inventory._id)
     console.log(props.inventory._id)
   }
-
+  
 
   return (
       <tbody>
