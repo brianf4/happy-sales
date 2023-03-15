@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 //get all inventory
 async function getInventory(req, res) {
-  const inventory = await Inventory.find({}).sort({createdAt: -1})
+  const inventory = await Inventory.find({})
   res.status(200).json(inventory)
 }
 
