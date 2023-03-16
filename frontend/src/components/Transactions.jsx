@@ -9,8 +9,8 @@ function Transactions(props) {
   
 
   return (
-      <tbody>
-      <tr>
+      <tbody className="">
+      <tr className="hover border-b-2 border-base-200">
         <td>{props.inventory.product}</td>
         <td>#{props.inventory.id.slice(-5)}</td>
         <td>$ {props.inventory.cost}</td>
@@ -19,15 +19,14 @@ function Transactions(props) {
           {/* The button to open edit modal */}
           <label 
             htmlFor="edit-item" 
-            className="btn btn-outline btn-info btn-sm normal-case"
+            className="btn btn-info btn-sm normal-case"
             onClick={handleClick}
             >
               <i className="fa-solid fa-pen-to-square px-1"></i>Edit Item</label>
-
           {/* The button to open delete modal */}
           <label 
             htmlFor={`delete-item`} 
-            className="btn btn-outline btn-error btn-sm normal-case" 
+            className="btn btn-error btn-sm normal-case" 
             onClick={handleClick}
           ><i className="fa-solid fa-trash-can px-1"></i>Delete Item</label>
 

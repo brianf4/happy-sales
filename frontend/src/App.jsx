@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom'
-import Navbar from './components/Navbar';
+import { Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar';
 import AddPopup from './components/AddPopup';
 import DeletePopup from './components/DeletePopup';
@@ -34,7 +33,6 @@ function App() {
     setInventory((prevInventory) => {
       return [...prevInventory, value]
     })
-
   }
 
   async function deleteProduct(productId) {
@@ -62,13 +60,13 @@ function App() {
   return (
 
     <div className='h-full'>
-      <Navbar />
+      
       <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <Sidebar />
         <div className="drawer-content flex flex-col">
         {/* <!-- Right page content here --> */}         
           <Routes>
-            
             <Route path="/" 
             element={
             <Home 
@@ -87,7 +85,7 @@ function App() {
             } />
           </Routes>
         </div>
-        <Sidebar />
+        
         <AddPopup 
           addProduct={addProduct}
         /> 

@@ -25,7 +25,6 @@ function EditPopup(props) {
         })
       }
 
-
     async function updateProduct() {
     const product = { ...text }
     
@@ -48,6 +47,9 @@ function EditPopup(props) {
             <input type="checkbox" id="edit-item" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box rounded-2xl flex flex-col gap-y-2">
+                <div className="modal-action m-0">
+                    <label htmlFor="edit-item" className="text-neutral hover:text-neutral-focus hover:cursor-pointer"><i className="fa-solid fa-xmark fa-lg"></i></label>
+                </div>    
                 <form>
                     <div className="flex gap-x-2">
                         <div className="flex flex-col grow">
