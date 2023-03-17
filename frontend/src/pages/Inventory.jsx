@@ -1,5 +1,4 @@
 import Transactions from "../components/Transactions";
-import Navbar from "../components/Navbar";
 
 function Inventory(props) {
 
@@ -16,8 +15,7 @@ function Inventory(props) {
   
   
   return (
-    <div className="border-2 border-black">
-      <Navbar />
+    <div className="">
       <header>
         <h2 className="py-4 text-center text-xl">Inventory</h2>
         <section className="flex justify-end p-2">
@@ -27,7 +25,7 @@ function Inventory(props) {
           
         </section>
       </header>
-      <div className="overflow-auto border-2 border-red-500">
+      <div className="overflow-auto">
         <table className="table table-zebra w-full">
           {/* head */}
           <thead>
@@ -45,6 +43,7 @@ function Inventory(props) {
         </table>
         
       </div>
+      
 
     </div>
   )

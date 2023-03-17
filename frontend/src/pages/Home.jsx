@@ -2,7 +2,6 @@ import React from "react";
 import '../App.css';
 import Graph from '../components/Graph';
 import Stat from '../components/Stat';
-import Navbar from '../components/Navbar'
 
 function Home(props) {
 
@@ -19,9 +18,8 @@ function Home(props) {
 
   return (
 
-    <div>
-    <Navbar />  
-      <section className="border-2 border-cyan-600"> 
+    <div className="border-4 border-black">
+      <section className=""> 
       <h1>Revenue</h1>
         <Graph />
       </section>
@@ -43,7 +41,12 @@ function Home(props) {
           </table>
         </div>
       </section>
-      <section className="border-2 border-green-400 flex flex-col w-[99%] p-2 gap-y-4">
+      <section className="flex flex-col p-2 gap-y-4">
+        <Stat />
+        <Stat />
+        <Stat />
+      </section>
+      <section className="flex flex-col p-2 gap-y-4">
         <Stat />
         <Stat />
         <Stat />
@@ -53,3 +56,14 @@ function Home(props) {
   )
 }
 export default Home
+
+{/* <section className="flex flex-col p-2 gap-y-4">
+        <Stat />
+        <Stat />
+        <Stat />
+      </section>
+      <section className="flex flex-col p-2 gap-y-4">
+        <Stat />
+        <Stat />
+        <Stat />
+      </section> */}
