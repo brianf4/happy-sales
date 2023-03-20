@@ -2,11 +2,14 @@ import Transactions from "../components/Transactions";
 
 function Inventory(props) {
 
-  const products = props.inventory.map((product) => {
+  const products = props.inventory.map((product, i) => {
+    
+
     return (
       <Transactions 
         key={product._id}
         inventory={product}
+        numOfItem={i}
         deleteProduct={props.deleteProduct}
         handleId={props.handleId}
       />
@@ -30,6 +33,7 @@ function Inventory(props) {
           {/* head */}
           <thead>
             <tr>
+              <th></th>
               <th>Name</th>
               <th>ID</th>
               <th>Cost</th>

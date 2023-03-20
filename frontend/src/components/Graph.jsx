@@ -4,7 +4,6 @@ import Chart from "react-apexcharts";
 class Graph extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       options: {
         chart: {
@@ -39,18 +38,24 @@ class Graph extends Component {
       ]
     };
   }
-
+  
   render() {
+    let arrOfItems = this.props.inventory
+    let sum = arrOfItems.reduce((sum, current) => sum + current.cost , 0)
+    console.log(window.innerWidth === 1191)
     return (
-      <div>
-
+      <div className="flex flex-col grow p-4 bg-neutral-content rounded-md">
+        <div className="">
+          <h1 className="text-4xl font-bold py-2">${sum}</h1>
+          <span className="text-neutral py-2">Sales</span>
+        </div>
           <Chart
             options={this.state.options}
             series={this.state.series}
             type="area"
-            width="495"
+            width="100%"
+            height="600"
           />
-          
       </div>
     );
   }

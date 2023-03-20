@@ -7,10 +7,12 @@ function Transactions(props) {
     console.log(props.inventory._id)
   }
   
-
+  
+  
   return (
       <tbody className="">
       <tr className="hover border-b-2 border-base-200">
+        <td>{props.numOfItem + 1}</td>
         <td>{props.inventory.product}</td>
         <td>#{props.inventory.id.slice(-5)}</td>
         <td>$ {props.inventory.cost}</td>

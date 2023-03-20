@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Renner-Light
+font link: http://indestructibletype.com/BuyRenner.html
+font author: indestructible type*
+font author site: http://indestructibletype.com/Home.html
+
+
+icon designer: Josh Sorosky
+icon designer link: /joshsorosky
+        
+{"bg":"#EFF5EB","icon-gradient-0":"#21690F","icon-gradient-1":"#88C848","font":"#1C300E","slogan":"#304422"}
+      

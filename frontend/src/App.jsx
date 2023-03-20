@@ -51,7 +51,7 @@ function App() {
     setInventory(product)
   }
 
-  //This function grabs/handles the id of the delete & edit button and sends it to the modal popup component to delete or edit inventory product
+  //This function grabs/handles the id of the delete & edit button. Finds the inventory state to update ui and sends it to the modal popup component to delete or edit inventory product
   function handleId(id) {
     const product = inventory.find(product => product._id === id)
     setProduct(product)
@@ -60,7 +60,7 @@ function App() {
   
 
   return (
-    <div className='border-4 border-indigo-600 max-h-full overflow-auto'>
+    <div className='max-h-full overflow-auto'>
       <Navbar />
       <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
