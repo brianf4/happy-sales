@@ -4,9 +4,14 @@
 
 html, body {
   height: 100%;
-  
+}
+
+body {
+  height: 100%;
 }
 
 #root {
-  height: 100%; 
+  border: 6px solid rgb(152, 57, 247);
+  height: 100%;
+  /* overflow: auto; */
 }

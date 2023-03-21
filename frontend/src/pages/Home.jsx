@@ -6,12 +6,12 @@ import Stat from '../components/Stat';
 function Home(props) {
   
   return (
-    <div className="p-2 bg-base-200">
-      <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md"> 
+    <div className="home-container bg-base-200 p-2 overflow-auto h-full">
+      <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md p-2 gap-y-4"> 
         <Graph 
           inventory={props.inventory}
         />
-        <section className="overflow-auto bg-neutral-content rounded-md">
+        <section className="overflow-auto bg-neutral-content rounded-md p-5">
           <div>
             <span className="block text-xl font-bold py-2">Latest Transactions</span>
             <span className="block py-2 text-neutral">This is a list of latest transactions</span>

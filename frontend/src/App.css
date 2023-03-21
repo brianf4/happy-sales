@@ -11,3 +11,16 @@
     width: 100%;
     position: absolute;
 }
+
+.drawer {
+    border: 6px solid black;
+    height: 94.924%;
+}
+/* 1222 */
+.main-container {
+    height: 100%;
+}
+
+.drawer-side {
+    max-height: 100%;
+}

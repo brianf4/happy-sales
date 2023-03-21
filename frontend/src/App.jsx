@@ -11,9 +11,11 @@ import EditPopup from './components/EditPopup';
 //pages
 import Home from './pages/Home';
 import Inventory from './pages/Inventory';
+import Sales from './pages/Sales'
 
 
 function App() {
+  const [itemSold, setItemSold] = useState([])
   const [inventory, setInventory] = useState([])
   const [product, setProduct] = useState({})
 
@@ -60,9 +62,9 @@ function App() {
   
 
   return (
-    <div className='max-h-full overflow-auto'>
+    <div className='main-container'>
       <Navbar />
-      <div className="drawer drawer-mobile">
+      <div id='drawer' className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <Sidebar />
         <div className="drawer-content flex flex-col">
@@ -84,6 +86,7 @@ function App() {
               handleId={handleId}
             />
             } />
+            <Route path='sales' element={<Sales />} />
           </Routes>
         </div>
         
