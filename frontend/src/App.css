@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.canvas {
+    height: 50% !important;
+}
+
 .viewport {
     position: relative;
 }

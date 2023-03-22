@@ -11,7 +11,5 @@ body {
 }
 
 #root {
-  border: 6px solid rgb(152, 57, 247);
   height: 100%;
-  /* overflow: auto; */
 }

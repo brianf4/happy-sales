@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import AddPopup from './components/AddPopup';
 import DeletePopup from './components/DeletePopup';
 import EditPopup from './components/EditPopup';
+import ItemsSoldPopup from './components/ItemsSoldPopup';
 
 //pages
 import Home from './pages/Home';
@@ -103,6 +104,7 @@ function App() {
           updateInventory={updateInventory}
           fetchInventory={fetchInventory}
         />
+        <ItemsSoldPopup />
       </div>
 
     </div>
