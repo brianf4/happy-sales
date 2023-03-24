@@ -23,7 +23,7 @@ function ScanSoldItems(props) {
       "numOfWorkers": 4,
       "frequency": 20,
       "decoder": {
-        "readers": ['code_128_reader']
+        "readers": ['i2of5_reader']
       },
       
       "locate": true

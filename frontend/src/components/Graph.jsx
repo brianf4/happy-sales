@@ -42,7 +42,6 @@ class Graph extends Component {
   render() {
     let arrOfItems = this.props.inventory
     let sum = arrOfItems.reduce((sum, current) => sum + current.cost , 0)
-    console.log(window.innerWidth === 1191)
     return (
       <div className="flex flex-col grow p-4 bg-neutral-content rounded-md">
         <div className="">
