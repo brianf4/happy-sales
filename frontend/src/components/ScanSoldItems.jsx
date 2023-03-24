@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import Quagga from "quagga";
 
-function Scanner(props) {
+function ScanSoldItems(props) {
+  
 
   useEffect(() => {
     Quagga.init({
       "inputStream": {
         "type": "LiveStream",
+        "target": document.querySelector('#ScanSoldItems'),
         "constraints": {
-          "width": 800,
-          "height": 300,
+          // "width": "100%",
+          "height": "100%",
           "facingMode": "environment",
           "aspectRatio": { "min": 1, "max": 2 }
         },
@@ -21,7 +23,7 @@ function Scanner(props) {
       "numOfWorkers": 4,
       "frequency": 20,
       "decoder": {
-        "readers": ["code_128_reader"]
+        "readers": ['code_128_reader']
       },
       
       "locate": true
@@ -83,14 +85,14 @@ function Scanner(props) {
 
   function detected(result) {
     props.onDetected(result.codeResult.code);
+    console.log(result.codeResult)
   };
 
   return (
     // If you do not specify a target,
     // QuaggaJS would look for an element that matches
-    // the CSS selector #interactive.viewport
-    <div id="interactive" className="viewport" />
+    // the CSS selector #ScanSoldItems.viewport
+    <div id="ScanSoldItems" className="viewport" />
   );
-};
-
-export default Scanner;
+}
+export default ScanSoldItems

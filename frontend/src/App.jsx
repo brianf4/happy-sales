@@ -19,6 +19,7 @@ function App() {
   const [itemSold, setItemSold] = useState([])
   const [inventory, setInventory] = useState([])
   const [product, setProduct] = useState({})
+  const [camera, setCamera] = useState(false);
 
   async function fetchInventory() {
     const res = await fetch('http://localhost:4000/api/inventory')
@@ -60,7 +61,9 @@ function App() {
     setProduct(product)
   }
   
-  
+  function toggleCamera() {
+    setCamera((prevSetCamera) => !prevSetCamera)
+  }
 
   return (
     <div className='main-container'>
@@ -87,7 +90,7 @@ function App() {
               handleId={handleId}
             />
             } />
-            <Route path='sales' element={<Sales />} />
+            <Route path='sales' element={<Sales toggleCamera={toggleCamera} />} />
           </Routes>
         </div>
         
@@ -104,7 +107,10 @@ function App() {
           updateInventory={updateInventory}
           fetchInventory={fetchInventory}
         />
-        <ItemsSoldPopup />
+        <ItemsSoldPopup 
+          camera={camera}
+          toggleCamera={toggleCamera}
+        />
       </div>
 
     </div>

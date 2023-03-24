@@ -1,6 +1,8 @@
 import React from "react";
 
-function Sales() {
+function Sales(props) {
+  
+  
   return (
     <div className="">
       <div className="hero bg-base-200 items-start">
@@ -9,7 +11,7 @@ function Sales() {
             <h1 className="text-5xl font-bold">Hello there</h1>
             <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
             {/* The button to open scan items sold */}
-            <label htmlFor="scan-sold-items" className="btn btn-primary">Get Started</label>
+            <label onClick={props.toggleCamera} htmlFor="scan-sold-items" className="btn btn-primary">Get Started</label>
           </div>
         </div>
       </div>      

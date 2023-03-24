@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.canvas {
-    height: 50% !important;
-}
 
 .viewport {
     position: relative;
@@ -18,7 +15,7 @@
 
 .drawer {
     border: 6px solid black;
-    height: 94.924%;
+    height: 95%;
 }
 /* 1222 */
 .main-container {
