@@ -85,7 +85,6 @@ function ScanSoldItems(props) {
 
   function detected(result) {
     props.onDetected(result.codeResult.code);
-    console.log(result.codeResult)
   };
 
   return (

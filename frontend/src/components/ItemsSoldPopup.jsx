@@ -1,29 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Quagga from "quagga";
 import ScanSoldItems from "./ScanSoldItems"
 
 function ItemsSoldPopup(props) {
   
-  const [soldItems, setSoldItems] = useState([])
-  
-  console.log(soldItems)
-
-  
-  useEffect(() => {
-    onDetected()
-  }, [soldItems])
-
+ 
+  //trying to set the data array at a higer state and configure it from here
   function onDetected(result) {
-    setSoldItems((prevSoldItems) => [...prevSoldItems, result])
-    //Quagga.stop()    
+    props.onDetected(result)
     
-    props.toggleCamera()
-    console.log("Detected!")
-    // setTimeout(() => {
-    //   console.log("3.5 seconds done!")
-    //   props.toggleCamera()
-    // }, 3500)
-    
+   
   }
 
   

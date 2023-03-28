@@ -8,6 +8,7 @@ import AddPopup from './components/AddPopup';
 import DeletePopup from './components/DeletePopup';
 import EditPopup from './components/EditPopup';
 import ItemsSoldPopup from './components/ItemsSoldPopup';
+import Quagga from 'quagga';
 
 //pages
 import Home from './pages/Home';
@@ -16,7 +17,7 @@ import Sales from './pages/Sales'
 
 
 function App() {
-  const [itemSold, setItemSold] = useState([])
+  const [soldItems, setSoldItems] = useState([])
   const [inventory, setInventory] = useState([])
   const [product, setProduct] = useState({})
   const [camera, setCamera] = useState(false);
@@ -65,6 +66,20 @@ function App() {
     setCamera((prevSetCamera) => !prevSetCamera)
   }
 
+  function onDetected(result) {
+
+    soldItems.includes(result) ? null : setSoldItems((prevSoldItems) => [...prevSoldItems, result]);
+    Quagga.offDetected()
+    Quagga.stop()
+    toggleCamera()
+    setTimeout(() => {
+      toggleCamera()
+    }, 1000)
+    
+  }
+
+  console.log(soldItems)
+
   return (
     <div className='main-container'>
       <Navbar />
@@ -110,6 +125,7 @@ function App() {
         <ItemsSoldPopup 
           camera={camera}
           toggleCamera={toggleCamera}
+          onDetected={onDetected}
         />
       </div>
 
