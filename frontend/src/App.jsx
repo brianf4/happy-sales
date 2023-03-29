@@ -67,18 +67,18 @@ function App() {
   }
 
   function onDetected(result) {
-
-    soldItems.includes(result) ? null : setSoldItems((prevSoldItems) => [...prevSoldItems, result]);
+    
+    const scannedItem = inventory.find((item) => item.id == result)
+    setSoldItems((prevSoldItems) => [...prevSoldItems, scannedItem])
+    
     Quagga.offDetected()
     Quagga.stop()
     toggleCamera()
     setTimeout(() => {
       toggleCamera()
-    }, 1000)
-    
+    }, 1000) 
   }
-
-  console.log(soldItems)
+  
 
   return (
     <div className='main-container'>
@@ -98,14 +98,22 @@ function App() {
             <Route 
               path="inventory" 
               element={
-            <Inventory 
-              inventory={inventory}
-              addProduct={addProduct}
-              deleteProduct={deleteProduct}
-              handleId={handleId}
+              <Inventory 
+                inventory={inventory}
+                addProduct={addProduct}
+                deleteProduct={deleteProduct}
+                handleId={handleId}/>
+              } 
             />
-            } />
-            <Route path='sales' element={<Sales toggleCamera={toggleCamera} />} />
+            <Route 
+              path='sales' 
+              element={
+                <Sales 
+                  toggleCamera={toggleCamera}
+                  soldItems={soldItems}
+                  inventory={inventory} />
+              } 
+            />
           </Routes>
         </div>
         
@@ -126,6 +134,7 @@ function App() {
           camera={camera}
           toggleCamera={toggleCamera}
           onDetected={onDetected}
+          soldItems={soldItems}
         />
       </div>
 
