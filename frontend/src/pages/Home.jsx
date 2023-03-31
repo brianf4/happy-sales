@@ -10,6 +10,7 @@ function Home(props) {
       <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md p-2 gap-y-4"> 
         <Graph 
           inventory={props.inventory}
+          grabDataArray={props.grabDataArray}
         />
         <section className="overflow-auto bg-neutral-content rounded-md p-5">
           <div>

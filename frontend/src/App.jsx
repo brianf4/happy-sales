@@ -16,11 +16,13 @@ import Inventory from './pages/Inventory';
 import Sales from './pages/Sales'
 
 
+
 function App() {
   const [soldItems, setSoldItems] = useState([])
   const [inventory, setInventory] = useState([])
   const [product, setProduct] = useState({})
   const [camera, setCamera] = useState(false);
+  const [graphData, setGraphData] = useState([])
 
   async function fetchInventory() {
     const res = await fetch('http://localhost:4000/api/inventory')
@@ -67,9 +69,13 @@ function App() {
   }
 
   function onDetected(result) {
-    
     const scannedItem = inventory.find((item) => item.id == result)
-    setSoldItems((prevSoldItems) => [...prevSoldItems, scannedItem])
+    const dateSold = new Date()
+    setSoldItems((prevSoldItems) => [...prevSoldItems, 
+      {
+        ...scannedItem,
+        date: dateSold
+      }])
     
     Quagga.offDetected()
     Quagga.stop()
@@ -78,69 +84,86 @@ function App() {
       toggleCamera()
     }, 1000) 
   }
-  
 
+  function grabDataArray(graphDataArray) {
+    setGraphData((prevGraphData) => [...prevGraphData, graphDataArray])
+  }
+  console.log(graphData)
+
+  // ~~After complete order~~
+  // reflect the graph
+  // decrement qty from inventory page
+  // reflect the recent transactions in the dashboard page
+  // as well as the stats on the dashboard page
+  
+  
   return (
-    <div className='main-container'>
-      <Navbar />
-      <div id='drawer' className="drawer drawer-mobile">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <Sidebar />
-        <div className="drawer-content flex flex-col">
-        {/* <!-- Right page content here --> */}         
-          <Routes>
-            <Route path="/" 
-            element={
-            <Home 
-              inventory={inventory}
-            />
-            } />
-            <Route 
-              path="inventory" 
+
+      <div className='main-container'>
+        <Navbar />
+        <div id='drawer' className="drawer drawer-mobile">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+          <Sidebar />
+          <div className="drawer-content flex flex-col">
+          {/* <!-- Right page content here --> */}         
+            <Routes>
+              <Route 
+              path="/" 
               element={
-              <Inventory 
+              <Home 
                 inventory={inventory}
-                addProduct={addProduct}
-                deleteProduct={deleteProduct}
-                handleId={handleId}/>
-              } 
-            />
-            <Route 
-              path='sales' 
-              element={
-                <Sales 
-                  toggleCamera={toggleCamera}
-                  soldItems={soldItems}
-                  inventory={inventory} />
-              } 
-            />
-          </Routes>
+                grabDataArray={grabDataArray}
+                
+              />
+              } />
+              <Route 
+                path="inventory" 
+                element={
+                <Inventory 
+                  inventory={inventory}
+                  addProduct={addProduct}
+                  deleteProduct={deleteProduct}
+                  handleId={handleId}/>
+                } 
+              />
+                <Route 
+                path='sales' 
+                element={
+                  <Sales 
+                    toggleCamera={toggleCamera}
+                    soldItems={soldItems}
+                    inventory={inventory}
+                     />
+                } 
+              />
+            </Routes>
+          </div>
+          
+          <AddPopup 
+            addProduct={addProduct}
+          /> 
+          <DeletePopup 
+            product={product}
+            deleteProduct={deleteProduct}
+          />   
+          <EditPopup 
+            product={product}
+            inventory={inventory}
+            updateInventory={updateInventory}
+            fetchInventory={fetchInventory}
+          />
+          <ItemsSoldPopup 
+            camera={camera}
+            toggleCamera={toggleCamera}
+            onDetected={onDetected}
+            soldItems={soldItems}
+          />
         </div>
-        
-        <AddPopup 
-          addProduct={addProduct}
-        /> 
-        <DeletePopup 
-          product={product}
-          deleteProduct={deleteProduct}
-        />   
-        <EditPopup 
-          product={product}
-          inventory={inventory}
-          updateInventory={updateInventory}
-          fetchInventory={fetchInventory}
-        />
-        <ItemsSoldPopup 
-          camera={camera}
-          toggleCamera={toggleCamera}
-          onDetected={onDetected}
-          soldItems={soldItems}
-        />
+
       </div>
 
-    </div>
-
   );
+  
 }
 
 export default App;
