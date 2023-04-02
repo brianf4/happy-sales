@@ -85,10 +85,8 @@ function App() {
     }, 1000) 
   }
 
-  function grabDataArray(graphDataArray) {
-    setGraphData((prevGraphData) => [...prevGraphData, graphDataArray])
-  }
-  console.log(graphData)
+  
+  
 
   // ~~After complete order~~
   // reflect the graph
@@ -112,7 +110,7 @@ function App() {
               element={
               <Home 
                 inventory={inventory}
-                grabDataArray={grabDataArray}
+                grabDataArray={setGraphData}
                 
               />
               } />
@@ -133,6 +131,7 @@ function App() {
                     toggleCamera={toggleCamera}
                     soldItems={soldItems}
                     inventory={inventory}
+                    graphData={graphData}
                      />
                 } 
               />

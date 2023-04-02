@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Chart from "react-apexcharts";
 
 function Graph(props) {
@@ -29,13 +29,15 @@ function Graph(props) {
     },
     series: [
       {
-        name: "series-1",
+        name: "Monthly Sales",
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
       }
     ]
   });
 
-  props.grabDataArray(options.series[0].data)
+  useEffect(() => {
+    props.grabDataArray(options.series[0].data)
+  }, [])
  
 
   return (

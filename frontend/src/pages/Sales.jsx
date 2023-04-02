@@ -12,7 +12,18 @@ function Sales(props) {
     scannedItems[item] ? scannedItems[item] += 1 : scannedItems[item] = 1
   }
 
+ //What are we trying to do?
+ //We are trying to update the graph in the home page
+ //And the update action happens here in the sales page when user hits complete order button.
+
+ //So how do we go about updating that graph?
+ //graphArr[0,0,8,0] 
+ //salesArr[4, 3, 1] = 8 
+ //Make a function that has two parameters. graphArr & salesArr.
+ //Once the salesArr is done with the incoming data sum the total value of the arr and place in the graphArr acording indicie
   
+  console.log(props.graphData)
+ 
   const items = Object.keys(scannedItems).map((key, i) => {
     return (
       <section key={i}  className="border-2 border-base-200 bg-secondary py-1">
@@ -36,7 +47,7 @@ function Sales(props) {
         </section>
         <div className="flex justify-between items-center">
           <span className="text-2xl font-medium">Total: ${totalSpent}</span>
-          <button onClick={props.completeOrder} className="btn btn-primary">Complete Order</button>
+          <button  className="btn btn-primary">Complete Order</button>
         </div>
       </div>
       }

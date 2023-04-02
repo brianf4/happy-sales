@@ -15,7 +15,7 @@ function ItemsSoldPopup(props) {
     Quagga.stop()
   }
   
-
+  
   return (
     <div>
       {/* Put this part before </body> tag */}
