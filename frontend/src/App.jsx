@@ -43,7 +43,7 @@ function App() {
       return [...prevInventory, value]
     })
   }
-
+  
   async function deleteProduct(productId) {
     const res = await fetch('http://localhost:4000/api/inventory/' + productId, 
     {

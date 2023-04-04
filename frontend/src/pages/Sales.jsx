@@ -3,9 +3,9 @@ import React from "react";
 function Sales(props) {
   
   let totalSpent = props.soldItems.reduce((sum, current) => sum + current.cost , 0)
-  
+  console.log(props.soldItems)
 
-  let scannedItems = {}
+  let scannedItems = {} 
 
   for (let i = 0; i < props.soldItems.length; i++) {
     let item = props.soldItems[i].product

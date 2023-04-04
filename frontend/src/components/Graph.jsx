@@ -38,7 +38,7 @@ function Graph(props) {
   useEffect(() => {
     props.grabDataArray(options.series[0].data)
   }, [])
- 
+ console.log(options.series[0].data)
 
   return (
     <div className="flex flex-col grow p-4 bg-neutral-content rounded-md">
