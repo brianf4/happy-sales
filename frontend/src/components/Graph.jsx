@@ -2,43 +2,21 @@ import React, { useEffect } from "react";
 import Chart from "react-apexcharts";
 
 function Graph(props) {
-  const [options, setOptions] = React.useState(
-    {
-    chart: {
-      type: "area",
-      height: 350
-    },
-    dataLabels: {
-      enabled: false
-    },
-    xaxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
-      ]
-    },
-    series: [
-      {
-        name: "Monthly Sales",
-        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-      }
-    ]
-  });
+  
 
-  useEffect(() => {
-    props.grabDataArray(options.series[0].data)
-  }, [])
- console.log(options.series[0].data)
+  
+  
+
+  
+
+  
+
+
+  // console.log(options.series[0].data)
+  // let totalSum = props.soldItems.reduce((sum, current) => sum + current.cost, 0)
+  // console.log(totalSum)
+  // console.log(props.soldItems[0])
+  
 
   return (
     <div className="flex flex-col grow p-4 bg-neutral-content rounded-md">
@@ -47,8 +25,8 @@ function Graph(props) {
         <span className="text-neutral py-2">Sales</span>
       </div>
         <Chart
-          options={options}
-          series={options.series}
+          options={props.graphOptions}
+          series={props.graphOptions.series}
           type="area"
           width="100%"
           height="600"

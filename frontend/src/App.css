@@ -25,3 +25,7 @@
 .drawer-side {
     max-height: 100%;
 }
+
+#orderComplete {
+    background: no-repeat center/100%  url(./images/confetti.gif);
+}

@@ -18,11 +18,44 @@ import Sales from './pages/Sales'
 
 
 function App() {
+  //Eventually move most (if not all) state into an object
   const [soldItems, setSoldItems] = useState([])
   const [inventory, setInventory] = useState([])
   const [product, setProduct] = useState({})
   const [camera, setCamera] = useState(false);
-  const [graphData, setGraphData] = useState([])
+  const [orderComplete, setOrderComplete] = useState(false)
+  const [graphOptions, setGraphOptions] = React.useState(
+    {
+    chart: {
+      type: "area",
+      height: 350
+    },
+    dataLabels: {
+      enabled: false
+    },
+    xaxis: {
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ]
+    },
+    series: [
+      {
+        name: "Monthly Sales",
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      }
+    ]
+  });
 
   async function fetchInventory() {
     const res = await fetch('http://localhost:4000/api/inventory')
@@ -85,9 +118,30 @@ function App() {
     }, 1000) 
   }
 
-  
-  
 
+  function updateGraphOnCompleteOrder() {
+    let totalSum = soldItems.reduce((sum, current) => sum + current.cost, 0)
+    setGraphOptions((prevGraphOptions) => {
+      let prevArr = [...prevGraphOptions.series[0].data]
+      prevArr[soldItems[0].date.getMonth()] = totalSum
+      return (
+        {...prevGraphOptions,
+          series: [
+            {
+              name: "Monthly Sales",
+              data: prevArr
+            }
+          ]
+        }
+      )
+    })
+    toggleOrderComplete()
+  }  
+  
+  function toggleOrderComplete() {
+    setOrderComplete((prevOrderComplete) => !prevOrderComplete)
+  }
+  
   // ~~After complete order~~
   // reflect the graph
   // decrement qty from inventory page
@@ -110,8 +164,8 @@ function App() {
               element={
               <Home 
                 inventory={inventory}
-                grabDataArray={setGraphData}
-                
+                soldItems={soldItems}
+                graphOptions={graphOptions}
               />
               } />
               <Route 
@@ -131,8 +185,9 @@ function App() {
                     toggleCamera={toggleCamera}
                     soldItems={soldItems}
                     inventory={inventory}
-                    graphData={graphData}
-                     />
+                    updateGraphOnCompleteOrder={updateGraphOnCompleteOrder}
+                    orderComplete={orderComplete}
+                  />
                 } 
               />
             </Routes>

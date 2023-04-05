@@ -9,7 +9,8 @@ function Home(props) {
     <div className="home-container bg-base-200 p-2 overflow-auto h-full">
       <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md p-2 gap-y-4"> 
         <Graph 
-          grabDataArray={props.grabDataArray}
+          soldItems={props.soldItems}
+          graphOptions={props.graphOptions}
         />
         <section className="overflow-auto bg-neutral-content rounded-md p-5">
           <div>
