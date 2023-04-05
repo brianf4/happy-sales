@@ -4,8 +4,6 @@ import confettiPopperLogo from "../images/confettiCone.gif"
 
 function Sales(props) {
 
-  
-  
   let totalSpent = props.soldItems.reduce((sum, current) => sum + current.cost , 0)
   console.log(props.soldItems)
 
@@ -39,17 +37,21 @@ function Sales(props) {
 
   
   
-
+  console.log(props.soldItems.length, props.orderComplete)
   return (
     <div className="p-4 flex flex-col justify-around border-2 border-red-400 h-full ">
       <h2 className="text-2xl font-semibold text-center">Scan items that are ready to be sold!</h2>
-      {props.soldItems.length === 0 ? <img className="border-2 border-secondary bg-secondary" src={addToCartLogo} alt="" /> : <div className=""></div>
-      }
+      
+      {/* True --> False */}
+      {props.soldItems.length === 0 && <img className="border-2 border-secondary bg-secondary" src={addToCartLogo} alt="" />}
+
       {/* The button to open scan items sold */}
       <div className="flex justify-center">
         <label onClick={props.toggleCamera} htmlFor="scan-sold-items" className="btn btn-primary"><i className="fa-solid fa-camera mr-1"></i>Scan</label> 
       </div>
-      { props.soldItems.length > 0 && 
+      
+      {/* False --> True --> False */} 
+      { props.orderComplete && 
       <div className="flex flex-col gap-y-8">
         <section className="border-2 border-black p-2 flex flex-col gap-y-2">
           {items}
@@ -60,13 +62,14 @@ function Sales(props) {
         </div>
       </div>
       }
+
+      {/* False --> True */}
       {props.orderComplete && 
         <div id="orderComplete" className="border-2 border-black h-full">
           <img className="m-auto" src={confettiPopperLogo} alt="" />
           <h3 className="text-center text-4xl py-2">Order Complete!</h3>
           <h4 className="text-center text-xl text-neutral">Thank you for your purchase!</h4>
-        </div>
-      }
+        </div>}
       
     </div>
   )

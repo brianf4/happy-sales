@@ -66,8 +66,6 @@ function App() {
   }
 
   useEffect (() => {
-    
-    
     fetchInventory()
   }, [])
 
@@ -116,6 +114,9 @@ function App() {
     setTimeout(() => {
       toggleCamera()
     }, 1000) 
+    if (soldItems.length > 0) {
+      setOrderComplete((prevOrderComplete) => !prevOrderComplete)
+    }
   }
 
 
@@ -138,6 +139,7 @@ function App() {
     toggleOrderComplete()
   }  
   
+
   function toggleOrderComplete() {
     setOrderComplete((prevOrderComplete) => !prevOrderComplete)
   }
