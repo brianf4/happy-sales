@@ -9,13 +9,16 @@ const inventoryRoutes = require('./routes/inventoryRoutes')
 //express app
 const app = express()
 
+app.use(express.static("dist"));
+
 //middleware
 app.use(cors());
 app.use(express.json())
 
-
 //routes
 app.use('/api/inventory', inventoryRoutes)
+
+
 
 // Connect to DB
 mongoose.connect(process.env.MONGO_URI)
