@@ -12,7 +12,9 @@ function ItemsSoldPopup(props) {
   }
 
   function doneScanning() {
+    Quagga.offDetected()
     Quagga.stop()
+    props.toggleCamera()
   }
   
   

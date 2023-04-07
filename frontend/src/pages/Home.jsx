@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import '../App.css';
 import Graph from '../components/Graph';
 import Stat from '../components/Stat';
 
 function Home(props) {
+  console.log(props.latestTransactions)
+
+  const items = props.latestTransactions.map((item, i) => {
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return (
+      <tbody key={i}>
+        <tr>
+          <th>{i + 1}</th> 
+          <td>{item[0].product}</td> 
+          <td>
+            {`${monthNames[item[0].date.getMonth()]} ${item[0].date.getDay()} ${item[0].date.getFullYear()} ${item[0].date.getHours() - 12}:${item[0].date.getMinutes()}`}
+          </td> 
+          <td>{item[0].cost}</td> 
+          <td>{}</td>
+        </tr>
+      </tbody> 
+
+    )
+  })
   
   return (
     <div className="home-container bg-base-200 p-2 overflow-auto h-full">
@@ -25,70 +44,10 @@ function Home(props) {
                   <th>Transaction</th> 
                   <th>Date & Time</th> 
                   <th>Amount</th> 
+                  <th>Qty</th>
                 </tr>
               </thead> 
-              <tbody>
-                <tr>
-                  <th>1</th> 
-                  <td>Cy Ganderton</td> 
-                  <td>Quality Control Specialist</td> 
-                  <td>Littel, Schaden and Vandervort</td> 
-                </tr>
-                <tr>
-                  <th>2</th> 
-                  <td>Hart Hagerty</td> 
-                  <td>Desktop Support Technician</td> 
-                  <td>Zemlak, Daniel and Leannon</td> 
-                </tr>
-                <tr>
-                  <th>3</th> 
-                  <td>Brice Swyre</td> 
-                  <td>Tax Accountant</td> 
-                  <td>Carroll Group</td> 
-                </tr>
-                <tr>
-                  <th>4</th> 
-                  <td>Marjy Ferencz</td> 
-                  <td>Office Assistant I</td> 
-                  <td>Rowe-Schoen</td> 
-                </tr>
-                <tr>
-                  <th>5</th> 
-                  <td>Yancy Tear</td> 
-                  <td>Community Outreach Specialist</td> 
-                  <td>Wyman-Ledner</td> 
-                </tr>
-                <tr>
-                  <th>6</th> 
-                  <td>Irma Vasilik</td> 
-                  <td>Editor</td> 
-                  <td>Wiza, Bins and Emard</td> 
-                </tr>
-                <tr>
-                  <th>7</th> 
-                  <td>Meghann Durtnal</td> 
-                  <td>Staff Accountant IV</td> 
-                  <td>Schuster-Schimmel</td> 
-                </tr>
-                <tr>
-                  <th>8</th> 
-                  <td>Sammy Seston</td> 
-                  <td>Accountant I</td> 
-                  <td>O'Hara, Welch and Keebler</td> 
-                </tr>
-                <tr>
-                  <th>9</th> 
-                  <td>Lesya Tinham</td> 
-                  <td>Safety Technician IV</td> 
-                  <td>Turner-Kuhlman</td> 
-                </tr>
-                <tr>
-                  <th>10</th> 
-                  <td>Zaneta Tewkesbury</td> 
-                  <td>VP Marketing</td> 
-                  <td>Sauer LLC</td> 
-                </tr>
-              </tbody> 
+              {items}
             </table>
           </div>
         </section>

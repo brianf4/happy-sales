@@ -21,9 +21,11 @@ function App() {
   //Eventually move most (if not all) state into an object
   const [soldItems, setSoldItems] = useState([])
   const [inventory, setInventory] = useState([])
+  const [latestTransactions, setLatestTransactions] = useState([])
   const [product, setProduct] = useState({})
   const [camera, setCamera] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false)
+  const [showTable, setShowTable] = useState(true)
   const [graphOptions, setGraphOptions] = React.useState(
     {
     chart: {
@@ -114,13 +116,10 @@ function App() {
     setTimeout(() => {
       toggleCamera()
     }, 1000) 
-    if (soldItems.length > 0) {
-      setOrderComplete((prevOrderComplete) => !prevOrderComplete)
-    }
   }
 
 
-  function updateGraphOnCompleteOrder() {
+  function updateOnCompleteOrder() {
     let totalSum = soldItems.reduce((sum, current) => sum + current.cost, 0)
     setGraphOptions((prevGraphOptions) => {
       let prevArr = [...prevGraphOptions.series[0].data]
@@ -136,7 +135,12 @@ function App() {
         }
       )
     })
+
+    // Toggles the UI of the Sales page
     toggleOrderComplete()
+    setShowTable((prevShowTable) => !prevShowTable)
+
+    setLatestTransactions((prevLatestTransactions) => [...prevLatestTransactions, soldItems])
   }  
   
 
@@ -145,10 +149,10 @@ function App() {
   }
   
   // ~~After complete order~~
-  // reflect the graph
-  // decrement qty from inventory page
-  // reflect the recent transactions in the dashboard page
-  // as well as the stats on the dashboard page
+  // reflect the graph - [x]
+  // decrement qty from inventory page - []
+  // reflect the recent transactions in the dashboard page - [x]
+  // as well as the stats on the dashboard page - []
   
   
   return (
@@ -168,6 +172,7 @@ function App() {
                 inventory={inventory}
                 soldItems={soldItems}
                 graphOptions={graphOptions}
+                latestTransactions={latestTransactions}
               />
               } />
               <Route 
@@ -186,9 +191,10 @@ function App() {
                   <Sales 
                     toggleCamera={toggleCamera}
                     soldItems={soldItems}
-                    inventory={inventory}
-                    updateGraphOnCompleteOrder={updateGraphOnCompleteOrder}
+                    updateOnCompleteOrder={updateOnCompleteOrder}
                     orderComplete={orderComplete}
+                    toggleOrderComplete={toggleOrderComplete}
+                    showTable={showTable}
                   />
                 } 
               />
