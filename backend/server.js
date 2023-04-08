@@ -17,6 +17,13 @@ app.use(express.json())
 
 //routes
 app.use('/api/inventory', inventoryRoutes)
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'dist/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 
 
