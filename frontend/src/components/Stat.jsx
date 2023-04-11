@@ -2,8 +2,8 @@ import React from "react";
 
 function Stat() {
   return (
-    <div className="flex justify-between">
-      <div className="stats shadow">
+    <div className="flex flex-col gap-y-4 md:flex-row md:gap-x-4">
+      <div className="stats shadow md:w-1/3">
   
         <div className="stat">
           <div className="stat-title">Total Page Views</div>
@@ -12,7 +12,7 @@ function Stat() {
         </div>
 
       </div>
-      <div className="stats shadow">
+      <div className="stats shadow md:w-1/3">
   
         <div className="stat">
           <div className="stat-title">Total Page Views</div>
@@ -21,7 +21,7 @@ function Stat() {
         </div>
 
       </div>
-      <div className="stats shadow">
+      <div className="stats shadow md:w-1/3">
   
         <div className="stat">
           <div className="stat-title">Total Page Views</div>

@@ -18,7 +18,7 @@ import Sales from './pages/Sales'
 
 
 function App() {
-  //Eventually move most (if not all) state into an object
+  //Eventually move most (if not all) state into an object for better organization
   const [soldItems, setSoldItems] = useState([])
   const [inventory, setInventory] = useState([])
   const [latestTransactions, setLatestTransactions] = useState([])
@@ -140,7 +140,7 @@ function App() {
     toggleOrderComplete()
     setShowTable((prevShowTable) => !prevShowTable)
 
-    setLatestTransactions((prevLatestTransactions) => [...prevLatestTransactions, soldItems])
+    setLatestTransactions((prevLatestTransactions) => [...prevLatestTransactions, ...soldItems])
   }  
   
 

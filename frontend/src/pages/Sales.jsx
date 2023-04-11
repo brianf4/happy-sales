@@ -8,7 +8,7 @@ function Sales(props) {
   
 
   let totalSpent = props.soldItems.reduce((sum, current) => sum + current.cost , 0)
-  console.log(props.soldItems)
+
 
   let scannedItems = {} 
 
@@ -16,13 +16,14 @@ function Sales(props) {
     let item = props.soldItems[i].product
     scannedItems[item] ? scannedItems[item] += 1 : scannedItems[item] = 1
   }
-  
+
  //What are we trying to do?
  //We are trying to update the graph in the home page
  //And the update action happens here in the sales page when user hits complete order button.
   
  
   const items = Object.keys(scannedItems).map((key, i) => {
+    
     return (
       <tbody key={i} className="">
         <tr className="">
@@ -34,6 +35,8 @@ function Sales(props) {
       </tbody>
     )
   })
+  
+  
 
   
   return (
@@ -45,13 +48,12 @@ function Sales(props) {
         <label onClick={props.toggleCamera} htmlFor="scan-sold-items" className="btn btn-primary"><i className="fa-solid fa-camera mr-1"></i>Scan</label> 
       </div>
       
-      {/* True --> False */}
+      {/* Add to cart logo */}
       {props.soldItems.length === 0 && 
 
         <img className="border-2 border-secondary bg-secondary self-center" src={addToCartLogo} alt="" />}
       
-      
-      {/* False --> True --> False */} 
+      {/* Table */}
       { props.soldItems.length > 0 && props.showTable ? 
       <div className="flex flex-col gap-y-8">
         <div className="overflow-x-auto">
@@ -77,7 +79,7 @@ function Sales(props) {
         </div>
       </div> : null}
         
-      {/* False --> True */}
+      {/* confetti gif/pic */}
       {props.orderComplete && 
         <div id="orderComplete" className="border-2 border-base-200 h-full">
           <img className="m-auto" src={confettiPopperLogo} alt="" />

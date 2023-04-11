@@ -6,22 +6,33 @@ import Stat from '../components/Stat';
 function Home(props) {
   console.log(props.latestTransactions)
 
-  const items = props.latestTransactions.map((item, i) => {
-    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  let latestItems = {}
+  for (let i = 0; i < props.latestTransactions.length; i++) {
+    let item = props.latestTransactions[i].product
+    latestItems[item] = latestItems[item] ? 
+    [latestItems[item][0] + 1, props.latestTransactions[i].cost, new Date(props.latestTransactions[i].date)]  
+    : 
+    latestItems[item] = [1, props.latestTransactions[i].cost, new Date(props.latestTransactions[i].date)]
+  }
+  console.log(latestItems)
+  
+
+  const items = Object.keys(latestItems).map((key, i) => {
+    
     return (
       <tbody key={i}>
         <tr>
           <th>{i + 1}</th> 
-          <td>{item[0].product}</td> 
+          <td>{key}</td> 
           <td>
-            {`${monthNames[item[0].date.getMonth()]} ${item[0].date.getDay()} ${item[0].date.getFullYear()} ${item[0].date.getHours() - 12}:${item[0].date.getMinutes()}`}
+            {`${latestItems[key][2].getMonth() + 1}/${latestItems[key][2].getDate()}/${latestItems[key][2].getFullYear() - 2000}`}
           </td> 
-          <td>{item[0].cost}</td> 
-          <td>{}</td>
+          <td>{`$${latestItems[key][1]}`}</td> 
+          <td>{latestItems[key][0]}</td>
         </tr>
       </tbody> 
-
     )
+    
   })
   
   return (
@@ -42,8 +53,8 @@ function Home(props) {
                 <tr>
                   <th></th> 
                   <th>Transaction</th> 
-                  <th>Date & Time</th> 
-                  <th>Amount</th> 
+                  <th>Date</th> 
+                  <th>Cost</th> 
                   <th>Qty</th>
                 </tr>
               </thead> 
