@@ -4,7 +4,6 @@ import Graph from '../components/Graph';
 import Stat from '../components/Stat';
 
 function Home(props) {
-  console.log(props.latestTransactions)
 
   let latestItems = {}
   for (let i = 0; i < props.latestTransactions.length; i++) {
@@ -37,6 +36,7 @@ function Home(props) {
   
   return (
     <div className="home-container bg-base-200 p-2 overflow-auto h-full">
+      
       <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md p-2 gap-y-4"> 
         <Graph 
           soldItems={props.soldItems}
@@ -65,7 +65,10 @@ function Home(props) {
       </section>
       
       <section className="flex flex-col p-2 gap-y-4">
-        <Stat />
+        <Stat 
+          inventory={props.inventory}
+          soldItems={props.soldItems}
+        />
       </section>
     </div>    
         

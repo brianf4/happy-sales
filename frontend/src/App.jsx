@@ -11,6 +11,8 @@ import ItemsSoldPopup from './components/ItemsSoldPopup';
 import Quagga from 'quagga';
 
 //pages
+//Change index name and reroute everything to a dashboard page
+import Index from './pages';
 import Home from './pages/Home';
 import Inventory from './pages/Inventory';
 import Sales from './pages/Sales'
@@ -140,7 +142,10 @@ function App() {
     toggleOrderComplete()
     setShowTable((prevShowTable) => !prevShowTable)
 
-    setLatestTransactions((prevLatestTransactions) => [...prevLatestTransactions, ...soldItems])
+
+
+    setLatestTransactions((prevLatestTransactions) => 
+    [...prevLatestTransactions, ...soldItems])
   }  
   
 
@@ -166,7 +171,7 @@ function App() {
           {/* <!-- Right page content here --> */}         
             <Routes>
               <Route 
-              path="/" 
+              path="/dashboard" 
               element={
               <Home 
                 inventory={inventory}
