@@ -3,9 +3,6 @@ import addToCartLogo from "../images/undrawAddToCart.svg"
 import confettiPopperLogo from "../images/confettiCone.gif"
 
 function Sales(props) {
-  
-
-  
 
   let totalSpent = props.soldItems.reduce((sum, current) => sum + current.cost , 0)
 
@@ -18,7 +15,7 @@ function Sales(props) {
   }
 
  //What are we trying to do?
- //We are trying to update the graph in the home page
+ //We are trying to update the graph in the Home page
  //And the update action happens here in the sales page when user hits complete order button.
   
  

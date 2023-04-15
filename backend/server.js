@@ -1,10 +1,11 @@
 require('dotenv').config()
+
 const path = require('path');
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const inventoryRoutes = require('./routes/inventoryRoutes')
-
+const userRoutes = require('./routes/userRoutes')
 
 //express app
 const app = express()
@@ -18,7 +19,9 @@ app.use(cors());
 app.use(express.json())
 
 //routes
-app.use('/api/inventory', inventoryRoutes)  
+app.use('/api/inventory', inventoryRoutes)
+app.use('/api/user', userRoutes)  
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'), function(err) {
       if (err) {
@@ -26,7 +29,6 @@ app.get('/*', function(req, res) {
       }
     })
   })
-console.log(__dirname + '/dist')
 
 
 // Connect to DB

@@ -1,13 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
-function Index() {
+
+function Index () {
   return (
-    <main>
-      <h1>index page</h1>
-      <p>come join and sign up here</p>
-    </main>
-    
+    <ul>
+      <li>
+        <Link to="signup">Signup</Link>
+      </li>
+      <li>
+      <Link to="Login">Login</Link>
+      </li>
+    </ul>
   )
-}
+} 
 export default Index

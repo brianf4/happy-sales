@@ -35,7 +35,7 @@ function Home(props) {
   })
   
   return (
-    <div className="home-container bg-base-200 p-2 overflow-auto h-full">
+    <div className="home-container bg-base-200 p-2 overflow-auto h-full border-4 border-yellow-500">
       
       <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md p-2 gap-y-4"> 
         <Graph 
