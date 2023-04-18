@@ -3,7 +3,9 @@ const mongoose = require('mongoose')
 
 //get all inventory
 async function getInventory(req, res) {
-  const inventory = await Inventory.find({})
+  const user_id = req.user._id
+
+  const inventory = await Inventory.find({ user_id })
   res.status(200).json(inventory)
 }
 
@@ -23,7 +25,8 @@ async function getProduct(req, res) {
 async function createProduct(req, res) {
   const {product, cost, id, qty} = req.body
     try {
-        const inventory = await Inventory.create({product, cost, id, qty})
+        const user_id = req.user._id
+        const inventory = await Inventory.create({product, cost, id, qty, user_id})
         res.status(200).json(inventory)
     } catch (error) {
         res.status(400).json({error: error.message})

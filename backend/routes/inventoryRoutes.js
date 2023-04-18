@@ -6,7 +6,12 @@ const {
     deleteProduct,
     updateProduct
 } = require('../controllers/inventoryController')
+const requireAuth = require('../middleware/requireAuth')
+
 const router = express.Router()
+
+// require auth for all inventory routes
+router.use(requireAuth)
 
 // GET all inventory
 router.get('/', getInventory)

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Scanner from './Scanner'
 import Quagga from "quagga";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 
 function AddPopup(props) {
+  const { user } = useAuthContext()
+
   const [camera, setCamera] = useState(false);
   const [result, setResult] = useState(null);
   
@@ -17,6 +20,10 @@ function AddPopup(props) {
   async function handleSubmit(event) {
     event.preventDefault()
 
+    if(!user) {
+      return
+    }
+
     const product = { ...productData }
     console.log('what is this: ', product)
 
@@ -24,7 +31,8 @@ function AddPopup(props) {
       method: 'POST',
       body: JSON.stringify(product),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
       }
     })
     

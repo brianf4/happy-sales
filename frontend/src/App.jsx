@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar';
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { useAuthContext } from './hooks/useAuthContext';
 
 import Quagga from 'quagga';
 
@@ -60,8 +60,14 @@ function App() {
       ]
     });
 
+  const {user} = useAuthContext()
+
   async function fetchInventory() {
-    const res = await fetch('http://localhost:4000/api/inventory')
+    const res = await fetch('http://localhost:4000/api/inventory', {
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      }
+    })
     const data = await res.json()
     if (res.ok) {
       setInventory(data)
@@ -69,8 +75,10 @@ function App() {
   }
 
   useEffect(() => {
-    fetchInventory()
-  }, [])
+    if (user) {
+      fetchInventory()
+    }
+  }, [user])
 
   function addProduct(value) {
     setInventory((prevInventory) => {
@@ -79,9 +87,16 @@ function App() {
   }
 
   async function deleteProduct(productId) {
+    if (!user) {
+      return
+    }
+
     const res = await fetch('http://localhost:4000/api/inventory/' + productId,
       {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
       })
     const data = await res.json()
 
@@ -173,15 +188,15 @@ function App() {
         />
         <Route
           path='/login'
-          element={<Login />}
+          element={!user ? <Login /> : <Navigate to="/dashboard/home" />}
         />
         <Route
           path='/signup'
-          element={<Signup />}
+          element={!user ? <Signup /> : <Navigate to="/dashboard/home" />}
         />
-        <Route path='dashboard'
+        <Route path='/dashboard'
           element=
-          {<Dashboard
+          {user ? <Dashboard
             soldItems={soldItems}
             inventory={inventory}
             latestTransactions={latestTransactions}
@@ -199,7 +214,7 @@ function App() {
             onDetected={onDetected}
             updateOnCompleteOrder={updateOnCompleteOrder}
             toggleOrderComplete={toggleOrderComplete}
-          />}
+          /> : <Navigate to="/login" />}
         >
           <Route path="home" element={<Home 
           inventory={inventory}
