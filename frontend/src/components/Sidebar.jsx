@@ -9,9 +9,18 @@ function Sidebar() {
       <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
       <ul className="menu p-4 w-80 bg-base-100 text-neutral text-xl font-semibold">
         {/* <!-- Sidebar content here --> */}
-        <li><Link to="home">Home</Link></li>
-        <li><Link to="inventory">Inventory</Link></li>
-        <li><Link to="sales">Sales</Link></li>
+        <li>
+            <Link to="home"><i className="fa-solid fa-house-chimney"></i>Home</Link> 
+        </li>
+        <li>
+            <Link to="inventory"><i className="fa-solid fa-boxes-stacked"></i>Inventory</Link>
+        </li>
+        <li>
+            <Link to="sales"><i className="fa-solid fa-tags"></i>Sales</Link>
+        </li>
+        <li>
+          <Link to="generate-barcode"><i className="fa-solid fa-barcode"></i>Barcode Maker</Link>
+        </li>
       </ul>
     </div>
   ) 

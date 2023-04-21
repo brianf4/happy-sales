@@ -3,8 +3,6 @@ import Transactions from "../components/Transactions";
 function Inventory(props) {
 
   const products = props.inventory.map((product, i) => {
-    
-
     return (
       <Transactions 
         key={product._id}
@@ -15,7 +13,6 @@ function Inventory(props) {
       />
     )
   } )
-  
   
   return (
     <div className="">

@@ -13,11 +13,9 @@ function Home(props) {
     : 
     latestItems[item] = [1, props.latestTransactions[i].cost, new Date(props.latestTransactions[i].date)]
   }
-  console.log(latestItems)
   
 
   const items = Object.keys(latestItems).map((key, i) => {
-    
     return (
       <tbody key={i}>
         <tr>
@@ -31,7 +29,6 @@ function Home(props) {
         </tr>
       </tbody> 
     )
-    
   })
   
   return (
@@ -71,7 +68,6 @@ function Home(props) {
         />
       </section>
     </div>    
-        
   )
 }
 export default Home

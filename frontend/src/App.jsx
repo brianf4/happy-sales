@@ -13,6 +13,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Inventory from './pages/Inventory';
 import Sales from './pages/Sales'
+import Barcode from './pages/Barcode';
 
 
 
@@ -214,35 +215,31 @@ function App() {
             onDetected={onDetected}
             updateOnCompleteOrder={updateOnCompleteOrder}
             toggleOrderComplete={toggleOrderComplete}
-          /> : <Navigate to="/login" />}
-        >
+          /> : <Navigate to="/" />}>
           <Route path="home" element={<Home 
           inventory={inventory}
           soldItems={soldItems}
           graphOptions={graphOptions}
           latestTransactions={latestTransactions}
           />} />
-          <Route path="inventory"element={<Inventory 
+          <Route path="inventory" element={<Inventory 
           inventory={inventory}
           addProduct={addProduct}
           deleteProduct={deleteProduct}
           handleId={handleId}
           />} />
-          <Route path='sales'element={<Sales 
+          <Route path='sales' element={<Sales 
           toggleCamera={toggleCamera}
           soldItems={soldItems}
           updateOnCompleteOrder={updateOnCompleteOrder}
           orderComplete={orderComplete}
           toggleOrderComplete={toggleOrderComplete}
           showTable={showTable}
-
           />} />
+          <Route path='generate-barcode' element={<Barcode />}/>
         </Route>
       </Routes>
-
-
     </div>
-
   );
 
 }
