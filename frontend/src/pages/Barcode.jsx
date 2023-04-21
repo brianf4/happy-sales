@@ -9,7 +9,7 @@ function Barcode() {
     setNumOfBarcodes(event.target.value)
     setGenerateBarcodes([])
   }
-
+  
   function handleSubmit(event) {
     event.preventDefault()
     for (let i = 0; i < numOfBarcodes; i++) {
