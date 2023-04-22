@@ -14,18 +14,10 @@
     position: absolute;
 }
 
-.drawer {
-    border: 6px solid rgb(148, 94, 240);
-}
 /* 1222 */
 .main-container {
     height: 100%;
 }
-
-.home-container {
-
-}
-
 
 #orderComplete {
     background: no-repeat center/200%  url(./images/confetti.gif);
