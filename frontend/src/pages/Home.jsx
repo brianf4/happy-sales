@@ -67,6 +67,7 @@ function Home(props) {
           soldItems={props.soldItems}
         />
       </section>
+      <h4>something</h4>
     </div>    
   )
 }

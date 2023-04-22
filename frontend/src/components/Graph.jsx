@@ -7,7 +7,7 @@ function Graph(props) {
   return (
     <div className="flex flex-col grow p-4 bg-neutral-content rounded-md">
       <div className="">
-        <span className="block font-medium text-neutral">Total Revenue</span>
+        <span id="rev" className="block font-medium text-neutral">Total Revenue</span>
         <h1 className="text-4xl font-bold py-2">${total}</h1>
       </div>
         <Chart

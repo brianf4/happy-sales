@@ -108,7 +108,7 @@ function App() {
     setInventory(product)
   }
 
-  //This function grabs/handles the id of the delete & edit button. Finds the inventory state to update ui and sends it to the modal popup component to delete or edit inventory product
+  //This function grabs/handles the id of the delete & edit button. Finds the inventory state to update ui and sends it to the modal popup component to delete or edit inventory product to the db
   function handleId(id) {
     const product = inventory.find(product => product._id === id)
     setProduct(product)
@@ -175,7 +175,7 @@ function App() {
   // reflect the graph - [x]
   // decrement qty from inventory page - []
   // reflect the recent transactions in the Home page - [x]
-  // as well as the stats on the Home page - []
+  // as well as the stats on the Home page - [x]
 
 
   return (
