@@ -16,7 +16,6 @@
 
 .drawer {
     border: 6px solid rgb(148, 94, 240);
-    height: 95.2vh;
 }
 /* 1222 */
 .main-container {
@@ -30,65 +29,4 @@
 
 #orderComplete {
     background: no-repeat center/200%  url(./images/confetti.gif);
-}
-
-@media (max-height: 1322px) {
-    .drawer {
-        height: 95vh;
-    }
-}
-@media (max-height: 1270px) {
-    .drawer {
-        height: 94.9vh;
-    }
-}
-@media (max-height: 1245px) {
-    .drawer {
-        height: 94.85vh;
-    }
-}
-@media (max-height: 1233px) {
-    .drawer {
-        height: 94.8vh;
-    }
-}
-@media (max-height: 1221px) {
-    .drawer {
-        height: 94.75vh;
-    }
-}
-@media (max-height: 1208px) {
-    .drawer {
-        height: 94.7vh;
-    }
-}
-@media (max-height: 1198px) {
-    .drawer {
-        height: 94.65vh;
-    }
-}
-@media (max-height: 1186px) {
-    .drawer {
-        height: 94.6vh;
-    }
-}
-@media (max-height: 1175px) {
-    .drawer {
-        height: 94.4vh;
-    }
-}
-@media (max-height: 1133px) {
-    .drawer {
-        height: 94vh;
-    }
-}
-@media (max-height: 1058px) {
-    .drawer {
-        height: 93vh;
-    }
-}
-@media (max-height: 907px) {
-    .drawer {
-        height: 92.5vh;
-    }
 }
