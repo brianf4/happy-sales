@@ -9,6 +9,27 @@ async function getInventory(req, res) {
   res.status(200).json(inventory)
 }
 
+//UPDATE ALL inventory
+const updateInventory = async (req, res) => {
+  //const user_id = req.user._id
+  
+  const updatedInventory = req.body
+  console.log(updatedInventory)
+  
+  try {
+    let newInventory = []
+
+    for (let obj of req.body) {
+      let {_id, qty} = obj
+      newInventory.push(await Inventory.findOneAndUpdate({_id}, {qty: qty}, {returnDocument: "after"}))
+    }
+
+    res.status(200).json(newInventory)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+}
+
 //get a single inventory(product)
 async function getProduct(req, res) {
   const { id } = req.params
@@ -70,10 +91,29 @@ const updateProduct = async (req, res) => {
 
   res.status(200).json(inventory)
 }
+
+const decrementInventory = async (req, res) => {
+  try {
+    await Inventory.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        //decrement by the amount that has been sold rather than just by -1
+        $inc: { qty: -1 },
+      }
+    );
+  } catch (error) {
+    console.log(error)
+  }
+  
+}
+
+
 module.exports = {
   getInventory,
   getProduct,
   createProduct,
   deleteProduct,
-  updateProduct
+  updateProduct,
+  decrementInventory,
+  updateInventory
 }

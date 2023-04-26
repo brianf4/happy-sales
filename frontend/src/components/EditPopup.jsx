@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 
 function EditPopup(props) {
@@ -8,7 +9,7 @@ function EditPopup(props) {
         id: '',
         qty: 0
     })
-
+    const {user} = useAuthContext()
     
     useEffect(() => {
         if(Object.keys(props.product).length > 0) {
@@ -26,17 +27,19 @@ function EditPopup(props) {
       }
 
     async function updateProduct() {
-    const product = { ...text }
-    
-    const res = await fetch('http://localhost:4000/api/inventory/' + props.product._id, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(product)
-    })
-    const data = await res.json()
-    props.fetchInventory()
-    
-    
+        const product = { ...text }
+        
+        const res = await fetch('http://localhost:4000/api/inventory/' + props.product._id, {
+            method: 'PUT',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            },
+            body: JSON.stringify(product),
+            
+        })
+        const data = await res.json()
+        props.fetchInventory()
     }  
         
     

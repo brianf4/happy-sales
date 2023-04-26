@@ -97,7 +97,8 @@ function App() {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${user.token}`
-        }
+        },
+        body: JSON.stringify(inventory),
       })
     const data = await res.json()
 
@@ -136,7 +137,9 @@ function App() {
   }
 
 
-  function updateOnCompleteOrder() {
+  
+  
+  async function updateOnCompleteOrder() {
     let totalSum = soldItems.reduce((sum, current) => sum + current.cost, 0)
     setGraphOptions((prevGraphOptions) => {
       let prevArr = [...prevGraphOptions.series[0].data]
@@ -159,13 +162,54 @@ function App() {
     setShowTable((prevShowTable) => !prevShowTable)
 
 
-
+    //set the latest transactions in the homepage
     setLatestTransactions((prevLatestTransactions) =>
       [...prevLatestTransactions, ...soldItems])
 
-      
-  }
+    let decrementQty = {}
 
+    for (let i = 0; i < soldItems.length; i++) {
+      let productQty = soldItems[i]._id
+  
+      decrementQty[productQty] ? decrementQty[productQty] += 1 : decrementQty[productQty] = 1
+    }      
+    
+    setInventory((prevInventory) => {
+      return prevInventory.map((item) => {
+        return {
+          ...item,
+          qty: decrementQty[item._id] ? item.qty - decrementQty[item._id] : item.qty
+        }
+      })
+    })
+    
+    
+    const res = await fetch('http://localhost:4000/api/inventory/', {
+        method: 'PUT',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`
+        },
+        body: JSON.stringify(inventory),
+    })
+    
+    
+
+    // [{x3}, {x2}, {}, {}]  
+    // {_id , prodName, cost, qty}
+
+    // const res = await fetch('http://localhost:4000/api/decrement/' + latestTransactions[i]._id, {
+    //   method: 'PUT',
+    //   headers: { 
+    //       'Content-Type': 'application/json',
+    //       'Authorization': `Bearer ${user.token}`
+    //   },
+    //   body: JSON.stringify(product),
+    //   })
+    //   const data = await res.json()
+
+  }
+  console.log(inventory)
 
   function toggleOrderComplete() {
     setOrderComplete((prevOrderComplete) => !prevOrderComplete)
@@ -173,10 +217,16 @@ function App() {
 
   // ~~After complete order~~
   // reflect the graph - [x]
-  // decrement qty from inventory page - []
+  // decrement qty from inventory page - [x]
   // reflect the recent transactions in the Home page - [x]
   // as well as the stats on the Home page - [x]
 
+
+  /* 
+  
+  let latestTransactions = [{product: Shirt, cost: 4, qty: 10}, {product: Shoes, cost: 4, qty: 10}, {product: Shoes, cost: 4, qty: 10}]
+
+  */
 
   return (
 
