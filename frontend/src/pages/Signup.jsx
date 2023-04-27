@@ -21,7 +21,7 @@ const Signup = () => {
           <Logo />
         </Link>
       </div>
-    <div className="border-2 border-black flex h-full bg-base-300">
+    <div className="flex h-full bg-base-300">
       <form onSubmit={handleSubmit} className='px-12 py-6 m-auto border-2 border-primary flex flex-col justify-center gap-y-4 bg-base-200 rounded-lg'>
         <h3 className='text-2xl font-semibold text-base-content'>Signup</h3>
         <label className='block text-lg font-medium text-base-content'>Email:</label>
