@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.main-container > div {
+    height: 100%;
+    overflow: hidden;
+}
 
+#drawer {
+    height: 100%;
+}
 
 .viewport {
     position: relative;

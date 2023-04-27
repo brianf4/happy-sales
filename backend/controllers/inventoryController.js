@@ -23,7 +23,7 @@ const updateInventory = async (req, res) => {
       let {_id, qty} = obj
       newInventory.push(await Inventory.findOneAndUpdate({_id}, {qty: qty}, {returnDocument: "after"}))
     }
-
+    
     res.status(200).json(newInventory)
   } catch (error) {
     res.status(500).json({ error: error.message })
@@ -92,20 +92,7 @@ const updateProduct = async (req, res) => {
   res.status(200).json(inventory)
 }
 
-const decrementInventory = async (req, res) => {
-  try {
-    await Inventory.findOneAndUpdate(
-      { _id: req.params.id },
-      {
-        //decrement by the amount that has been sold rather than just by -1
-        $inc: { qty: -1 },
-      }
-    );
-  } catch (error) {
-    console.log(error)
-  }
-  
-}
+
 
 
 module.exports = {
@@ -114,6 +101,5 @@ module.exports = {
   createProduct,
   deleteProduct,
   updateProduct,
-  decrementInventory,
   updateInventory
 }

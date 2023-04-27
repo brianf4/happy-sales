@@ -2,7 +2,7 @@ import React from "react";
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Link } from "react-router-dom";
-import Logo from '../images/logo.svg'
+import Logo from "./Logo"
 
 function Navbar() {
   const { logout } = useLogout()
@@ -21,7 +21,11 @@ function Navbar() {
       </label>
 
       <div className="px-2 flex-1 justify-between">
-        <img className="max-w-[8rem] sm:max-w-[12rem]" src={Logo} alt="" />
+        <Link to="/dashboard/home">
+        <Logo />
+        </Link>
+          {/* <img className="max-w-[8rem] sm:max-w-[12rem]" src={Logo} alt="" /> */}
+
         <div className="flex gap-x-2">
           <span>{user && user.email}</span>
           {user && <a onClick={handleClick} className="link link-accent">Logout</a>}

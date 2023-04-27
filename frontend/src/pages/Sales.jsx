@@ -37,7 +37,7 @@ function Sales(props) {
 
   
   return (
-    <div className="p-4 flex flex-col justify-around border-2 border-red-400 h-full ">
+    <div className="p-4 flex flex-col justify-around h-full ">
       <h2 className="text-2xl font-semibold text-center">Scan items that are ready to be sold!</h2>
       
       {/* The button to open scan items sold */}

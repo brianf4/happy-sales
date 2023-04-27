@@ -81,6 +81,8 @@ function App() {
     }
   }, [user])
 
+  
+
   function addProduct(value) {
     setInventory((prevInventory) => {
       return [...prevInventory, value]
@@ -103,7 +105,6 @@ function App() {
     const data = await res.json()
 
     setInventory((prevInventory) => prevInventory.filter(item => item._id !== data._id))
-    console.log(productId)
   }
   function updateInventory(product) {
     setInventory(product)
@@ -166,6 +167,8 @@ function App() {
     setLatestTransactions((prevLatestTransactions) =>
       [...prevLatestTransactions, ...soldItems])
 
+    
+    // Comparing sold items from inventory and decrementing accordingly  
     let decrementQty = {}
 
     for (let i = 0; i < soldItems.length; i++) {
@@ -174,13 +177,13 @@ function App() {
       decrementQty[productQty] ? decrementQty[productQty] += 1 : decrementQty[productQty] = 1
     }      
     
-    setInventory((prevInventory) => {
-      return prevInventory.map((item) => {
-        return {
-          ...item,
-          qty: decrementQty[item._id] ? item.qty - decrementQty[item._id] : item.qty
-        }
-      })
+    let inventoryCopy = inventory.slice()
+
+    let newInventory = inventoryCopy.map((item) => {
+      return {
+        ...item,
+        qty: decrementQty[item._id] ? item.qty - decrementQty[item._id] : item.qty
+      }
     })
     
     
@@ -190,26 +193,12 @@ function App() {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`
         },
-        body: JSON.stringify(inventory),
+        body: JSON.stringify(newInventory),
     })
-    
-    
-
-    // [{x3}, {x2}, {}, {}]  
-    // {_id , prodName, cost, qty}
-
-    // const res = await fetch('http://localhost:4000/api/decrement/' + latestTransactions[i]._id, {
-    //   method: 'PUT',
-    //   headers: { 
-    //       'Content-Type': 'application/json',
-    //       'Authorization': `Bearer ${user.token}`
-    //   },
-    //   body: JSON.stringify(product),
-    //   })
-    //   const data = await res.json()
-
+    const data = await res.json()
+    setInventory(data)
   }
-  console.log(inventory)
+  
 
   function toggleOrderComplete() {
     setOrderComplete((prevOrderComplete) => !prevOrderComplete)

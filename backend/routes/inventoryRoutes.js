@@ -5,7 +5,6 @@ const {
     createProduct,
     deleteProduct,
     updateProduct,
-    decrementInventory,
     updateInventory
 } = require('../controllers/inventoryController')
 const requireAuth = require('../middleware/requireAuth')
@@ -32,8 +31,5 @@ router.put('/:id', updateProduct)
 
 // UPDATE ALL inventory(product)
 router.put('/', updateInventory)
-
-// decrement inventory after order complete
-router.put('/decrement/:id', decrementInventory)
 
 module.exports = router

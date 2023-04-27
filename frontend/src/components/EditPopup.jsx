@@ -38,10 +38,9 @@ function EditPopup(props) {
             body: JSON.stringify(product),
             
         })
-        const data = await res.json()
+        //const data = await res.json()
         props.fetchInventory()
     }  
-        
     
     return (
         <div>
