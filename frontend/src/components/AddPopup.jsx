@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Scanner from './Scanner'
 import Quagga from "quagga";
+import { appUrl } from "../../../backend/common/appUrl";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 
@@ -27,7 +28,7 @@ function AddPopup(props) {
     const product = { ...productData }
     console.log('what is this: ', product)
 
-    const res = await fetch('http://localhost:4000/api/inventory', {
+    const res = await fetch(`${appUrl}/api/inventory`, {
       method: 'POST',
       body: JSON.stringify(product),
       headers: {

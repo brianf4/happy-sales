@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext';
-
+import { appUrl } from '../../backend/common/appUrl';
 import Quagga from 'quagga';
 
 //pages
@@ -64,7 +64,7 @@ function App() {
   const {user} = useAuthContext()
 
   async function fetchInventory() {
-    const res = await fetch('http://localhost:4000/api/inventory', {
+    const res = await fetch(`${appUrl}/api/inventory`, {
       headers: {
         'Authorization': `Bearer ${user.token}`
       }
@@ -94,7 +94,7 @@ function App() {
       return
     }
 
-    const res = await fetch('http://localhost:4000/api/inventory/' + productId,
+    const res = await fetch(`${appUrl}/api/inventory/${productId}` ,
       {
         method: 'DELETE',
         headers: {
@@ -187,7 +187,7 @@ function App() {
     })
     
     
-    const res = await fetch('http://localhost:4000/api/inventory/', {
+    const res = await fetch(`${appUrl}/api/inventory` , {
         method: 'PUT',
         headers: { 
             'Content-Type': 'application/json',

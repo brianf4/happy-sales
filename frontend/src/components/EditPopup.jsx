@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { appUrl } from "../../../backend/common/appUrl";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 
@@ -29,7 +30,7 @@ function EditPopup(props) {
     async function updateProduct() {
         const product = { ...text }
         
-        const res = await fetch('http://localhost:4000/api/inventory/' + props.product._id, {
+        const res = await fetch(`${appUrl}/api/inventory/${props.product._id}`, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',
