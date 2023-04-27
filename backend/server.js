@@ -30,7 +30,6 @@ app.get('/*', function(req, res) {
     })
   })
 
-
 // Connect to DB
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
