@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/brianf4/mern-happy-salles/issues"
   },
-  "homepage": "https://github.com/brianf4/mern-happy-salles#readme"
+  "homepage": "https://github.com/brianf4/mern-happy-salles#readme",
+  "devDependencies": {
+    "vite": "^2.8.0"
+  }
 }
