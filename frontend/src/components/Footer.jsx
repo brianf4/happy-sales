@@ -20,10 +20,10 @@ function Footer() {
             <i className="fa-brands fa-linkedin text-3xl md:text-5xl hover:text-[#0A66C2]"></i>
           </a> 
           <a href="https://github.com/brianf4" target="_blank">
-            <i class="fa-brands fa-square-github text-3xl hover:text-base-300"></i>
+            <i class="fa-brands fa-square-github text-3xl  hover:text-base-300 md:text-5xl"></i>
           </a>
           <a href="https://brianfuentes.netlify.app/"target="_blank">
-            <i class="fa-solid fa-globe text-2xl hover:text-[#262A53]"></i>
+            <i class="fa-solid fa-globe text-2xl md:text-4xl  hover:text-[#262A53]"></i>
           </a>
         </div>
       </div>
