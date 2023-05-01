@@ -38,5 +38,6 @@ Demo Password: Demopass123!
 4. run `npm run dev`
 
 ## Contact me
-
+📫 **Brian.Fuentes04@gmail.com**
+<a href="https://linkedin.com/in/brian fuentes" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="brian fuentes" height="15" width="25" /> LinkedIn</a>
 <a href="https://twitter.com/brianfuentes124" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="brianfuentes124" height="15" width="25" /> Twitter</a>
