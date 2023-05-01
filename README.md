@@ -12,7 +12,7 @@ Happy Sales is a full-stack website that enables businesses to efficiently gener
 For the frontend happy sales is built with React.js and am really happy how it turned out. For styling I used a CSS framework called tailwindcss and used a useful component library called Daisyui. For authentication I used JSON Web Tokens and the backend is powered by using Node.js with the Express framework. Additionally for storage MongoDB is being used as the database. 
 
 ## Optimizations
-Some of the things I would optimize is after generating your barcode you can send it to another device via email/text or other method to so that the current machine you're on can scan it. As well as be able to provide filters for the inventory to select items based on price, amount of items, genre of items etc.
+Some of the things I would optimize is after generating your barcode you can send it to another device via email/text or other method to so that the current machine you're on can scan it. As well as be able to provide filters for the inventory to select items based on price, amount of items, genre of items, etc.
 
 
 ## Lessons Learned:
