@@ -3,7 +3,7 @@ Happy Sales is a full-stack website that enables businesses to efficiently gener
 
 **Link to project:** https://happy-sales-production.up.railway.app/
 
-![alt tag](http://placecorgi.com/1200/650)
+![10 second gif of the front page of the Happy Sales website going from top to bottom](https://github.com/brianf4/happy-sales/blob/main/Happy%20Sales-logo/landing-page.gif)
 
 ## How It's Made:
 
