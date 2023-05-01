@@ -39,4 +39,4 @@ Demo Password: Demopass123!
 
 ## Contact me
 
-<a href="https://twitter.com/brianfuentes124" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="brianfuentes124" height="15" width="25" /></a>
+<a href="https://twitter.com/brianfuentes124" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="brianfuentes124" height="15" width="25" /> Twitter</a>
