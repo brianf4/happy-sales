@@ -22,6 +22,7 @@ I am really proud on how this web app came out. I learned so much from React/Exp
 ## Demo Login
 
 Demo Email: Demo.user@gmail.com
+<br>
 Demo Password: Demopass123!
 
 ## Installation
