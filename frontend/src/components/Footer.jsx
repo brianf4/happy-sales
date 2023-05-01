@@ -4,7 +4,7 @@ import React from "react";
 function Footer() {
 
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content">
+    <footer id="contact" className="footer p-10 bg-neutral text-neutral-content">
       <div>
         <p className="md:text-lg">Made with <i className="fa-solid fa-heart mx-1" style={{color: "#fae5e5"}} ></i><br /><i class="fa-regular fa-copyright"></i> Brian Fuentes</p>
       </div> 

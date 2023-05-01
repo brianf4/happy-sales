@@ -24,7 +24,7 @@ function Navbar() {
         <Link to="/dashboard/home">
         <Logo />
         </Link>
-          {/* <img className="max-w-[8rem] sm:max-w-[12rem]" src={Logo} alt="" /> */}
+          
 
         <div className="flex gap-x-2">
           <span>{user && user.email}</span>

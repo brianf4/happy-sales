@@ -1,33 +1,42 @@
-# My Awesome Project
-Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
+# Happy Sales
+Happy Sales is a full-stack website that enables businesses to efficiently generate barcodes, manage inventory, track sales, and analyze business performance overtime through comprehensive reports and analytics. The inspiration came from when I used to work in the back at a retail store as a stock/inventory associate and hated the slow and sluggish technology that I had to use to to keep track of inventory. This project is solution to better inproving the software.
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** https://happy-sales-production.up.railway.app/
 
 ![alt tag](http://placecorgi.com/1200/650)
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** HTML, CSS, JavaScript, React.js, Node.js/Express.js, MongoDB
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+For the frontend happy sales is built with React.js and am really happy how it turned out. For styling I used a CSS framework called tailwindcss and used a useful component library called Daisyui. For authentication I used JSON Web Tokens and the backend is powered by using Node.js with the Express framework. Additionally for storage MongoDB is being used as the database. 
 
 ## Optimizations
-*(optional)*
+Some of the things I would optimize is after generating your barcode you can send it to another device via email/text or other method to so that the current machine you're on can scan it. As well as be able to provide filters for the inventory to select items based on price, amount of items, genre of items etc.
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
 
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+I am really proud on how this web app came out. I learned so much from React/Express/MongoDB and all the little things that came with it. Especially how React makes their syntax composable, meaning, how they take a large amount of mixed html/css/javascript and fit it into my own custom component to make code more maintainable and flexible. As well as leveraging the advanced methods and query selectors that MongoDB has to offer, effectively letting me query and select those documents in an efficient manner.
 
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
+## Demo Login
 
-**Palettable:** https://github.com/alecortega/palettable
+Demo Email: Demo.user@gmail.com
+Demo Password: Demopass123!
 
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
+## Installation
 
-**Patch Panel:** https://github.com/alecortega/patch-panel
+1. Clone Repo
+2. Run `npm install` on root, frontend, AND backend
+3. Update PORT, MONGO_URI, SECRET
 
+## Usage
 
+1. Navigate to `frontend`
+2. run `npm run dev`
+3. Navigate to `backend`
+4. run `npm run dev`
 
+## Contact me
+
+<a href="https://twitter.com/brianfuentes124" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="brianfuentes124" height="15" width="25" /></a>

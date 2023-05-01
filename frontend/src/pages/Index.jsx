@@ -20,10 +20,13 @@ function Index () {
         </Link>
       <ul className="flex gap-x-2">
         <li>
-          <a className="btn btn-ghost normal-case text-lg" href="#howItWorks">How it works</a>
+          <a className="btn btn-ghost normal-case md:text-lg" href="#howItWorks">How it works</a>
         </li>
         <li>
-        <Link className="link hover:primary-focus" to="login">Login</Link>
+          <a className="btn btn-ghost normal-case md:text-lg" href="#contact">Contact</a>
+        </li>
+        <li>
+        <Link className="link hover:primary-focus md:text-lg" to="login">Login</Link>
         </li>
       </ul>
     </div>
