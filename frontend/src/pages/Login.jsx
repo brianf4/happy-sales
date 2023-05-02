@@ -47,7 +47,7 @@ const Login = () => {
           <div className='flex flex-col'>
             <div>
               <span className='select-none'>Demo Email: </span>
-              <span className='text-lg font-semibold underline'>Demo.user@gmail.com</span>
+              <span className='text-lg font-semibold underline'>demo.user@gmail.com</span>
             </div>
             <div>
               <span className='select-none'>Demo Password: </span>
