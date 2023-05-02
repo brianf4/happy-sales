@@ -39,7 +39,10 @@ function Index () {
             <span className="block">Sales Mangement Site</span>
           </h1>
           <p className="py-6 max-w-lg lg:text-lg">Happy Sales is the premium solution for managing your product sales with ease. With Happy Sales, you'll have access to comprehensive reports and analytics that will give you valuable insights into your business performance. </p>
-          <Link className="px-6 btn btn-primary" to="signup">Sign Up</Link>
+          <div className="flex justify-end gap-x-2 items-center">
+            <Link className="px-6 btn btn-primary" to="signup">Sign Up</Link>
+            <span>Or <Link className="link hover:primary-focus hover:text-secondary" to="login">Login</Link> with demo</span>
+          </div>
         </div>
       </div>
     </div>
