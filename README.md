@@ -1,5 +1,5 @@
 # Happy Sales
-Happy Sales is a full-stack website that enables businesses to efficiently generate barcodes, manage inventory, track sales, and analyze business performance overtime through comprehensive reports and analytics. The inspiration came from when I used to work in the back at a retail store as a stock/inventory associate and hated the slow and sluggish technology that I had to use to to keep track of inventory. This project is solution to better inproving that software.
+Happy Sales is a full-stack website that enables businesses to efficiently generate barcodes, manage inventory, track sales, and analyze business performance overtime through comprehensive reports and analytics. The inspiration came from when I used to work in the back at a retail store as a stock/inventory associate and hated the slow and sluggish technology that I had to use to to keep track of inventory. This project is a solution to better improving that software.
 
 **Link to project:** https://happy-sales-production.up.railway.app/
 
