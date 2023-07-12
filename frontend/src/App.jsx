@@ -204,19 +204,6 @@ function App() {
     setOrderComplete((prevOrderComplete) => !prevOrderComplete)
   }
 
-  // ~~After complete order~~
-  // reflect the graph - [x]
-  // decrement qty from inventory page - [x]
-  // reflect the recent transactions in the Home page - [x]
-  // as well as the stats on the Home page - [x]
-
-
-  /* 
-  
-  let latestTransactions = [{product: Shirt, cost: 4, qty: 10}, {product: Shoes, cost: 4, qty: 10}, {product: Shoes, cost: 4, qty: 10}]
-
-  */
-
   return (
 
     <div className='main-container'>
@@ -236,7 +223,7 @@ function App() {
         />
         <Route path='/dashboard'
           element=
-          {user ? <Dashboard
+          {user && <Dashboard
             soldItems={soldItems}
             inventory={inventory}
             latestTransactions={latestTransactions}
@@ -254,7 +241,7 @@ function App() {
             onDetected={onDetected}
             updateOnCompleteOrder={updateOnCompleteOrder}
             toggleOrderComplete={toggleOrderComplete}
-          /> : <Navigate to="/" />}>
+          /> }>
           <Route path="home" element={<Home 
           inventory={inventory}
           soldItems={soldItems}

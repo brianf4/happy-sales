@@ -15,7 +15,7 @@ import Navbar from "../components/Navbar";
 function Dashboard(props) {
   return (
     <div>
-      <Navbar />
+      <Navbar /> 
       <div id='drawer' className="drawer drawer-mobile">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <Sidebar />
