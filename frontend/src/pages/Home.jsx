@@ -13,7 +13,7 @@ function Home(props) {
       :
       latestItems[item] = [1, props.latestTransactions[i].cost, new Date(props.latestTransactions[i].date)]
   }
-
+  
 
   const items = Object.keys(latestItems).map((key, i) => {
     return (
@@ -32,11 +32,9 @@ function Home(props) {
   })
 
   return (
-    <div className="home-container bg-base-200 border-2 border-red-700 p-2 h-full w-3/4">
+    <div className="home-container bg-base-200 border-2 border-green-300 p-2 w-full">
 
-      <div className="flex h-full">
-        
-
+      <div>
         <div className="border-2 border-fuchsia-400 w-full">
           <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md p-2 gap-y-4 h-3/4">
             <Graph

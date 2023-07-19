@@ -16,9 +16,6 @@ import Sales from './pages/Sales'
 import Barcode from './pages/Barcode';
 
 
-
-
-
 function App() {
   //Eventually move most (if not all) state into an object for better organization
   const [soldItems, setSoldItems] = useState([])
@@ -28,7 +25,7 @@ function App() {
   const [camera, setCamera] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false)
   const [showTable, setShowTable] = useState(true)
-  const [graphOptions, setGraphOptions] = React.useState(
+  const [graphOptions, setGraphOptions] = useState(
     {
       chart: {
         type: "area",

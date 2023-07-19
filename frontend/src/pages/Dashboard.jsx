@@ -40,10 +40,10 @@ function Dashboard(props) {
             </div>
           </div>
           {/* Page content here */}
-          <div className="flex">
-            <div className="border-2 border-violet-600 w-1/4">
+          <div className="h-full">
+            {/* <div className="border-2 border-violet-600 w-1/4">
               <h1>Where is my stuff and why is it not being show. Let's find out</h1>
-            </div>
+            </div> */}
             <Outlet />
           </div>
           

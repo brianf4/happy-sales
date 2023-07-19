@@ -15,7 +15,7 @@ function Graph(props) {
           series={props.graphOptions.series}
           type="area"
           width="100%"
-          height="370"
+          height="300"
         />
     </div>
   )
