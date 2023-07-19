@@ -3,8 +3,7 @@ import React from "react";
 function Stat(props) {
   let date = new Date()
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-  console.log()
+  
 
   return (
     <div className="flex flex-col gap-y-4 md:flex-row md:gap-x-4">
