@@ -40,8 +40,8 @@ function Dashboard(props) {
             </div>
           </div>
           {/* Page content here */}
-          <div className="lg:flex lg:h-full">
-            <div className="hidden lg:block lg:border-2 lg:border-red-600 lg:w-1/4">
+          <div className="lg:flex lg:h-full border border-black">
+            <div className="hidden lg:block  lg:w-1/4 border-r border-black">
               <ul className="p-4 bg-base-100 text-neutral text-xl font-bold flex flex-col gap-y-4">
 
                   <Link to="home">

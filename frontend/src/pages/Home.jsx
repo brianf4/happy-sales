@@ -32,9 +32,9 @@ function Home(props) {
   })
 
   return (
-    <div className="home-container bg-base-200 border-2 border-green-300 p-2 w-full lg:w-3/4">
+    <div className="home-container bg-base-200 p-2 w-full lg:w-3/4">
 
-        <div className="border-2 border-fuchsia-400 w-full lg:h-full">
+        <div className="w-full lg:h-full">
           <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md p-2 gap-y-4 h-3/4">
             <Graph
               soldItems={props.soldItems}
