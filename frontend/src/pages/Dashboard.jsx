@@ -40,13 +40,42 @@ function Dashboard(props) {
             </div>
           </div>
           {/* Page content here */}
-          <div className="h-full">
-            {/* <div className="border-2 border-violet-600 w-1/4">
-              <h1>Where is my stuff and why is it not being show. Let's find out</h1>
-            </div> */}
+          <div className="lg:flex lg:h-full">
+            <div className="hidden lg:block lg:border-2 lg:border-red-600 lg:w-1/4">
+              <ul className="p-4 bg-base-100 text-neutral text-xl font-bold flex flex-col gap-y-4">
+
+                  <Link to="home">
+                    <li className="p-4 rounded-lg hover:cursor hover:bg-base-200">
+                      <i className="fa-solid fa-house-chimney mr-4"></i>Home
+                    </li>
+                  </Link>
+
+
+                  <Link to="inventory">
+                    <li className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
+                      <i className="fa-solid fa-boxes-stacked mr-4"></i>Inventory
+                    </li>
+                  </Link>
+
+
+                  <Link to="sales">
+                    <li className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
+                      <i className="fa-solid fa-tags mr-4"></i>Sales
+                    </li>
+                  </Link>
+
+
+                  <Link to="generate-barcode">
+                    <li className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
+                      <i className="fa-solid fa-barcode mr-4"></i>Barcode Maker
+                    </li>
+                  </Link>
+
+              </ul>
+            </div>
             <Outlet />
           </div>
-          
+
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
