@@ -22,6 +22,11 @@ app.use(express.json())
 app.use('/api/inventory', inventoryRoutes)
 app.use('/api/user', userRoutes)  
 
+app.use((req, res, next) => {
+  console.log(req.path, req.method)
+  next()
+})
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'), function(err) {
       if (err) {
