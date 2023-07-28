@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 function Sidebar() {
 
   return (
-    <div className="drawer-side border-r-2 border-base-300
-    h-[100vh]">
+    <div className="drawer-side border-r-2 border-base-300 helloo??">
       <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
       <ul className="menu p-4 w-80 bg-base-100 text-neutral text-xl font-semibold">
         {/* <!-- Sidebar content here --> */}
-        <li className='py-2'>
+        <li className='py-2 asdasd' htmlFor="my-drawer-2">
             <Link to="home"><i className="fa-solid fa-house-chimney"></i>Home</Link> 
         </li>
         <li className='py-2'>

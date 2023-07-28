@@ -220,7 +220,7 @@ function App() {
         />
         <Route path='/dashboard'
           element=
-          {user && <Dashboard
+          {user ? <Dashboard
             soldItems={soldItems}
             inventory={inventory}
             latestTransactions={latestTransactions}
@@ -238,7 +238,7 @@ function App() {
             onDetected={onDetected}
             updateOnCompleteOrder={updateOnCompleteOrder}
             toggleOrderComplete={toggleOrderComplete}
-          /> }>
+          /> : <Login /> }>
           <Route path="home" element={<Home 
           inventory={inventory}
           soldItems={soldItems}

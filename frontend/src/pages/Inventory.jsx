@@ -36,6 +36,7 @@ function Inventory(props) {
               <th>Cost</th>
               <th>Qty</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           

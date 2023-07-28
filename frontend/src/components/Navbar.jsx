@@ -1,7 +1,7 @@
 import React from "react";
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from "../hooks/useAuthContext";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import Logo from "./Logo"
 
 function Navbar() {
@@ -22,12 +22,12 @@ function Navbar() {
 
       <div className="px-2 flex-1 justify-between">
         <Link to="/dashboard/home">
-        <Logo />
+          <Logo />
         </Link>
           
 
         <div className="flex gap-x-2">
-          <span>{user && user.email}</span>
+          <span>{user && user.email}</span> 
           {user && <a onClick={handleClick} className="link link-accent">Logout</a>}
         </div>
       </div>

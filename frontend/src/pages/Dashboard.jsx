@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from 'react-router-dom'
 import Footer from '../components/Footer';
 import AddPopup from '../components/AddPopup';
@@ -6,14 +6,26 @@ import DeletePopup from '../components/DeletePopup';
 import EditPopup from '../components/EditPopup';
 import ItemsSoldPopup from '../components/ItemsSoldPopup';
 import Sidebar from "../components/Sidebar";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, redirect } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logo from "../components/Logo";
+import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 
 //add, delete, edit, itemsSoldPopup
 
 function Dashboard(props) {
+  const { logout } = useLogout()
+  const { user } = useAuthContext()
+
+
+  function handleClick() {
+    logout()
+  }
+
+  
+
   return (
     <div className="h-full">
       <div className="drawer h-full">
@@ -34,8 +46,10 @@ function Dashboard(props) {
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal">
                 {/* Navbar menu content here */}
-                <li><a>Navbar Item 1</a></li>
-                <li><a>Navbar Item 2</a></li>
+                <li>
+                  <span>{user && user.email}</span> 
+                  {user && <a onClick={handleClick} className="link link-accent">Logout</a>}
+                </li>
               </ul>
             </div>
           </div>
@@ -50,9 +64,9 @@ function Dashboard(props) {
                     </li>
                   </Link>
 
-
                   <Link to="inventory">
-                    <li className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
+                    <li 
+                      className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
                       <i className="fa-solid fa-boxes-stacked mr-4"></i>Inventory
                     </li>
                   </Link>

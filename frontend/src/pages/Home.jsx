@@ -43,7 +43,7 @@ function Home(props) {
             />
             <section className="overflow-auto bg-neutral-content rounded-md p-5">
               <div>
-                <span className="block text-xl font-bold py-2">Latest Transactions</span>
+                <span className="block text-2xl font-bold py-2">Latest Transactions</span>
                 <span className="block py-2 text-neutral">This is a list of latest transactions</span>
               </div>
               <div className="overflow-x-auto">

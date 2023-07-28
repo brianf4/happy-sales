@@ -16,21 +16,23 @@ function Transactions(props) {
         <td>#{props.inventory.id.slice(-5)}</td>
         <td>$ {props.inventory.cost}</td>
         <td>{props.inventory.qty}</td>
-        <td className="flex gap-x-2">  
+        <td className="flex-col">  
           {/* The button to open edit modal */}
           <label 
             htmlFor="edit-item" 
             className="btn btn-info btn-sm normal-case"
             onClick={handleClick}
             >
-              <i className="fa-solid fa-pen-to-square px-1"></i>Edit Item</label>
+              <i className="fa-solid fa-pen-to-square px-1"></i>Edit
+            </label>
+        </td>
+        <td className="flex-col">
           {/* The button to open delete modal */}
           <label 
             htmlFor={`delete-item`} 
             className="btn btn-error btn-sm normal-case" 
             onClick={handleClick}
-          ><i className="fa-solid fa-trash-can px-1"></i>Delete Item</label>
-
+          ><i className="fa-solid fa-trash-can px-1"></i>Delete</label>
         </td>
       </tr>
       

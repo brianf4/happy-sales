@@ -15,7 +15,7 @@ const Login = () => {
   }
 
   return (
-    <div className=''>
+    <div className='h-full'>
       <div className="p-4 navbar bg-primary text-primary-content flex justify-between">
         <Link to="/">
           <Logo />
