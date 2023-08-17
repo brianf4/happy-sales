@@ -34,7 +34,6 @@ function Home(props) {
 
   return (
     <div className="home-container bg-base-200 p-2 w-full lg:w-3/4">
-<Navbar />
         <div className="w-full lg:h-full">
           <section className="flex flex-col xl:flex-row xl:gap-x-4 rounded-md p-2 gap-y-4 h-3/4">
             <Graph

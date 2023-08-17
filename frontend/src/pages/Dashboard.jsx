@@ -24,7 +24,7 @@ function Dashboard(props) {
     logout()
   }
 
-  
+
 
   return (
     <div className="h-full">
@@ -43,14 +43,9 @@ function Dashboard(props) {
                 <Logo />
               </Link>
             </div>
-            <div className="flex-none hidden lg:block">
-              <ul className="menu menu-horizontal">
-                {/* Navbar menu content here */}
-                <li>
-                  <span>{user && user.email}</span> 
-                  {user && <a onClick={handleClick} className="link link-accent">Logout</a>}
-                </li>
-              </ul>
+            <div className="flex gap-x-2">
+              <span className="text-primary-content">{user && user.email}</span>
+              {user && <a onClick={handleClick} className="link link-accent">Logout</a>}
             </div>
           </div>
           {/* Page content here */}
@@ -58,32 +53,32 @@ function Dashboard(props) {
             <div className="hidden lg:block  lg:w-1/4 border-r border-black">
               <ul className="p-4 bg-base-100 text-neutral text-xl font-bold flex flex-col gap-y-4">
 
-                  <Link to="home">
-                    <li className="p-4 rounded-lg hover:cursor hover:bg-base-200">
-                      <i className="fa-solid fa-house-chimney mr-4"></i>Home
-                    </li>
-                  </Link>
+                <Link to="home">
+                  <li className="p-4 rounded-lg hover:cursor hover:bg-base-200">
+                    <i className="fa-solid fa-house-chimney mr-4"></i>Home
+                  </li>
+                </Link>
 
-                  <Link to="inventory">
-                    <li 
-                      className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
-                      <i className="fa-solid fa-boxes-stacked mr-4"></i>Inventory
-                    </li>
-                  </Link>
-
-
-                  <Link to="sales">
-                    <li className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
-                      <i className="fa-solid fa-tags mr-4"></i>Sales
-                    </li>
-                  </Link>
+                <Link to="inventory">
+                  <li
+                    className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
+                    <i className="fa-solid fa-boxes-stacked mr-4"></i>Inventory
+                  </li>
+                </Link>
 
 
-                  <Link to="generate-barcode">
-                    <li className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
-                      <i className="fa-solid fa-barcode mr-4"></i>Barcode Maker
-                    </li>
-                  </Link>
+                <Link to="sales">
+                  <li className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
+                    <i className="fa-solid fa-tags mr-4"></i>Sales
+                  </li>
+                </Link>
+
+
+                <Link to="generate-barcode">
+                  <li className="hover:cursor hover:bg-base-200 p-4 rounded-lg">
+                    <i className="fa-solid fa-barcode mr-4"></i>Barcode Maker
+                  </li>
+                </Link>
 
               </ul>
             </div>
