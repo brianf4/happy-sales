@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext';
+import { useLogout } from './hooks/useLogout';
 import { appUrl } from '../../backend/common/appUrl';
 import Quagga from 'quagga';
 
@@ -16,7 +17,22 @@ import Sales from './pages/Sales'
 import Barcode from './pages/Barcode';
 
 
+
+
 function App() {
+  const {user} = useAuthContext()
+  const {logout} = useLogout()
+  const myRequest = new Request(`${appUrl}/api/inventory`)
+  
+  useEffect(() => {
+    fetch(myRequest).then((res) => {
+      if (res.status === 401) {
+        logout()
+      }
+    })
+  }, [])
+
+
   //Eventually move most (if not all) state into an object for better organization
   const [soldItems, setSoldItems] = useState([])
   const [inventory, setInventory] = useState([])
@@ -58,7 +74,7 @@ function App() {
       ]
     });
 
-  const {user} = useAuthContext()
+  
 
   async function fetchInventory() {
     const res = await fetch(`${appUrl}/api/inventory`, {
